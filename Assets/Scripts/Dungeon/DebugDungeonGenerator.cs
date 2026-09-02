@@ -8,6 +8,10 @@ public class DebugDungeonGenerator : MonoBehaviour
     [SerializeField] float roomWidth = 40f;
     [SerializeField] float roomHeight = 15f;
 
+    [Header("Enemy Prefabs")]
+    [SerializeField] GameObject[] normalEnemyPrefabs;
+    [SerializeField] GameObject bossEnemyPrefab;
+
     Sprite _whiteSprite;
 
     void Awake() => _whiteSprite = MakeWhiteSprite();
@@ -29,7 +33,9 @@ public class DebugDungeonGenerator : MonoBehaviour
                      : i == roomCount - 1 ? RoomType.Boss
                      : RoomType.Normal;
             var room = MakeRoom(i, type);
-            room.transform.position = new Vector3(i * roomWidth, 0f, 0f);
+            var roomPos = new Vector3(i * roomWidth, 0f, 0f);
+            room.transform.position = roomPos;
+            SpawnEnemies(type, roomPos, room.transform);
             rooms.Add(room);
         }
         return rooms;
@@ -131,6 +137,35 @@ public class DebugDungeonGenerator : MonoBehaviour
         var door = go.AddComponent<DoorConnector>();
         door.side = side;
         return door;
+    }
+
+    void SpawnEnemies(RoomType type, Vector3 roomPos, Transform roomTransform)
+    {
+        if (type == RoomType.Start) return;
+
+        if (type == RoomType.Boss)
+        {
+            if (bossEnemyPrefab != null)
+            {
+                var e = Instantiate(bossEnemyPrefab, roomPos + new Vector3(roomWidth * 0.5f, 2f), Quaternion.identity);
+                e.transform.SetParent(roomTransform);
+                e.SetActive(false);
+            }
+            return;
+        }
+
+        if (normalEnemyPrefabs == null || normalEnemyPrefabs.Length == 0) return;
+        float[] spawnX = { 10f, 30f };
+        foreach (float x in spawnX)
+        {
+            var prefab = normalEnemyPrefabs[Random.Range(0, normalEnemyPrefabs.Length)];
+            if (prefab != null)
+            {
+                var e = Instantiate(prefab, roomPos + new Vector3(x, 1f), Quaternion.identity);
+                e.transform.SetParent(roomTransform);
+                e.SetActive(false);
+            }
+        }
     }
 
     void PlacePlayer()

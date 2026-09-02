@@ -13,8 +13,13 @@ public class DoorConnector : MonoBehaviour
 
     void Update()
     {
-        if (_playerNearby && Keyboard.current.fKey.wasPressedThisFrame)
-            RoomManager.Instance.Transition(Room, side);
+        if (!_playerNearby || !Keyboard.current.fKey.wasPressedThisFrame) return;
+
+        if (Room.roomType == RoomType.Normal && side == Side.Right
+            && Room.GetComponentsInChildren<EnemyBase>().Length > 0)
+            return;
+
+        RoomManager.Instance.Transition(Room, side);
     }
 
     void OnTriggerEnter2D(Collider2D other)
