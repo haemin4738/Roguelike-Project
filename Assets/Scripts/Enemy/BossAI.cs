@@ -75,6 +75,8 @@ public class BossAI : MonoBehaviour
         _attackTimer = rangedCooldown;
         Vector2 dir = ((Vector2)_player.position - (Vector2)transform.position).normalized;
         var go = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-        go.GetComponent<ProjectileBase>().Init(dir, projectileSpeed, projectileDamage, "Player");
+        var proj = go.GetComponent<ProjectileBase>();
+        if (proj == null) { Destroy(go); return; }
+        proj.Init(dir, projectileSpeed, projectileDamage, "Player");
     }
 }

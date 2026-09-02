@@ -30,6 +30,7 @@ public class RoomManager : MonoBehaviour
         if (next == null) return;
 
         Transform entry = side == DoorConnector.Side.Right ? next.leftEntry : next.rightEntry;
+        if (entry == null) return;
 
         var player = GameObject.FindGameObjectWithTag("Player");
         if (player != null) player.transform.position = entry.position;

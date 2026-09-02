@@ -46,6 +46,7 @@ public class EnemyAI : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (_player == null) return;
         switch (_state)
         {
             case State.Patrol: DoPatrol(); break;

@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class ProjectileBase : MonoBehaviour
 {
     [SerializeField] float rotationOffset = 0f;
