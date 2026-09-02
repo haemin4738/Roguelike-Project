@@ -170,10 +170,7 @@ public class PlayerController : MonoBehaviour
         _rb.linearVelocity = new Vector2(horizontal * moveSpeed, _rb.linearVelocity.y);
 
         if (horizontal != 0f)
-        {
             _facingDir = horizontal;
-            transform.localScale = new Vector3(horizontal, 1f, 1f);
-        }
     }
 
     void OnDrawGizmosSelected()
