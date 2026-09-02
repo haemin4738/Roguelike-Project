@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
+  serializedVersion: 3
   tags: []
   layers:
   - Default
@@ -11,10 +11,10 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Ground
+  - Player
+  - Enemy
+  - Projectile
   - 
   - 
   - 
@@ -41,3 +41,23 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 1489190195
+    locked: 0
+  - name: Tilemap
+    uniqueID: 919576455
+    locked: 0
+  - name: Props
+    uniqueID: 1556748649
+    locked: 0
+  - name: Enemy
+    uniqueID: 2213348617
+    locked: 0
+  - name: Player
+    uniqueID: 712513741
+    locked: 0
+  - name: UI
+    uniqueID: 1134936419
+    locked: 0
+  m_RenderingLayers:
+  - Default
