@@ -44,6 +44,9 @@ public class PlayerController : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _playerCollider = GetComponent<Collider2D>();
         _dashCount = maxDashCount;
+
+        // 벽 마찰 제거 — 마찰력이 있으면 벽에 붙어 공중에 멈추는 현상 발생
+        _rb.sharedMaterial = new PhysicsMaterial2D { friction = 0f, bounciness = 0f };
     }
 
     void Update()
@@ -148,9 +151,12 @@ public class PlayerController : MonoBehaviour
         _dashCount--;
         _isDashing = true;
 
+        Vector2 mouseWorld = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        Vector2 dir = ((mouseWorld - (Vector2)transform.position).normalized);
+
         float originalGravity = _rb.gravityScale;
         _rb.gravityScale = 0f;
-        _rb.linearVelocity = new Vector2(_facingDir * dashSpeed, 0f);
+        _rb.linearVelocity = dir * dashSpeed;
 
         yield return new WaitForSeconds(dashDuration);
 
