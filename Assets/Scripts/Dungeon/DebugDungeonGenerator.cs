@@ -12,6 +12,16 @@ public class DebugDungeonGenerator : MonoBehaviour
     [SerializeField] GameObject[] normalEnemyPrefabs;
     [SerializeField] GameObject bossEnemyPrefab;
 
+    [Header("Sprites (없으면 단색 블록으로 대체)")]
+    [SerializeField] Sprite floorSprite;
+    [SerializeField] Sprite wallSprite;
+    [SerializeField] Sprite platformSprite;
+    [SerializeField] Sprite doorSprite;
+
+    [Header("Background Tiles (여러 개 할당하면 랜덤 배치)")]
+    [SerializeField] Sprite[] floorVariants;   // floor_1 ~ floor_8
+    [SerializeField] Color bgTint = new Color(0.35f, 0.35f, 0.4f, 1f);
+
     Sprite _whiteSprite;
 
     void Awake() => _whiteSprite = MakeWhiteSprite();
@@ -33,9 +43,8 @@ public class DebugDungeonGenerator : MonoBehaviour
                      : i == roomCount - 1 ? RoomType.Boss
                      : RoomType.Normal;
             var room = MakeRoom(i, type);
-            var roomPos = new Vector3(i * roomWidth, 0f, 0f);
-            room.transform.position = roomPos;
-            SpawnEnemies(type, roomPos, room.transform);
+            room.transform.position = new Vector3(i * roomWidth, 0f, 0f);
+            SpawnEnemies(type, room.transform.position, room.transform);
             rooms.Add(room);
         }
         return rooms;
@@ -59,59 +68,103 @@ public class DebugDungeonGenerator : MonoBehaviour
         room.roomType  = type;
         room.roomWidth = roomWidth;
 
-        Color c = type == RoomType.Start ? new Color(0.3f, 0.6f, 0.3f)
-                : type == RoomType.Boss  ? new Color(0.6f, 0.2f, 0.2f)
-                : new Color(0.4f, 0.4f, 0.5f);
+        Color wallColor = type == RoomType.Start ? new Color(0.3f, 0.6f, 0.3f)
+                        : type == RoomType.Boss  ? new Color(0.6f, 0.2f, 0.2f)
+                        : new Color(0.4f, 0.4f, 0.5f);
+        Color floorColor = wallColor * 0.75f; floorColor.a = 1f;
+
+        // 배경: 바닥 타일 랜덤 배치
+        AddTiledBackground(go.transform);
 
         // 바닥 / 좌벽 / 우벽 / 천장
-        AddBlock(go.transform, new Vector2(roomWidth + 2f, 1f),  new Vector3(roomWidth * .5f, -0.5f),         c);
-        AddBlock(go.transform, new Vector2(1f, roomHeight),      new Vector3(-0.5f, roomHeight * .5f),         c);
-        AddBlock(go.transform, new Vector2(1f, roomHeight),      new Vector3(roomWidth + 0.5f, roomHeight*.5f), c);
-        AddBlock(go.transform, new Vector2(roomWidth + 2f, 1f),  new Vector3(roomWidth * .5f, roomHeight+.5f), c);
+        AddBlock(go.transform, new Vector2(roomWidth + 2f, 1f),    new Vector3(roomWidth * .5f, -0.5f),            floorColor, floorSprite);
+        AddBlock(go.transform, new Vector2(1f, roomHeight),        new Vector3(-0.5f, roomHeight * .5f),            wallColor,  wallSprite);
+        AddBlock(go.transform, new Vector2(1f, roomHeight),        new Vector3(roomWidth + 0.5f, roomHeight * .5f), wallColor,  wallSprite);
+        AddBlock(go.transform, new Vector2(roomWidth + 2f, 1f),    new Vector3(roomWidth * .5f, roomHeight + .5f),  wallColor,  wallSprite);
 
         // Normal·Boss: 중간 발판 (하향점프 가능)
         if (type != RoomType.Start)
-            AddPlatform(go.transform, 12f, new Vector3(roomWidth * .5f, roomHeight * .4f), c * 1.3f);
+            AddPlatform(go.transform, 12f, new Vector3(roomWidth * .5f, roomHeight * .4f), wallColor * 1.3f);
 
-        // 트리거(x=0~3, x=37~40)와 겹치지 않도록 안쪽에 배치
         room.leftEntry  = MakeMarker(go.transform, "LeftEntry",  new Vector3(5f, 2f));
         room.rightEntry = MakeMarker(go.transform, "RightEntry", new Vector3(roomWidth - 5f, 2f));
-        // 트리거는 벽 안쪽에 배치 — 플레이어가 벽에 닿기 전에 확실히 감지
-        room.leftDoor   = AddDoor(go.transform, DoorConnector.Side.Left,  new Vector3(1.5f, roomHeight * .5f));
-        room.rightDoor  = AddDoor(go.transform, DoorConnector.Side.Right, new Vector3(roomWidth - 1.5f, roomHeight * .5f));
+
+        room.leftDoor  = AddDoor(go.transform, DoorConnector.Side.Left,  new Vector3(1.5f, 1.5f));
+        room.rightDoor = AddDoor(go.transform, DoorConnector.Side.Right, new Vector3(roomWidth - 1.5f, 1.5f));
 
         return room;
     }
 
-    void AddBlock(Transform parent, Vector2 size, Vector3 localPos, Color color)
+    // 1×1 unit 타일을 격자로 배치 — floorVariants 배열에서 랜덤 선택
+    void AddTiledBackground(Transform parent)
+    {
+        bool hasVariants = floorVariants != null && floorVariants.Length > 0;
+        int cols = Mathf.RoundToInt(roomWidth);
+        int rows = Mathf.RoundToInt(roomHeight);
+
+        var bgRoot = new GameObject("Background");
+        bgRoot.transform.SetParent(parent, false);
+
+        for (int x = 0; x < cols; x++)
+        {
+            for (int y = 0; y < rows; y++)
+            {
+                var tile = new GameObject($"T{x}_{y}");
+                tile.transform.SetParent(bgRoot.transform, false);
+                tile.transform.localPosition = new Vector3(x + 0.5f, y + 0.5f, 0f);
+
+                var sr = tile.AddComponent<SpriteRenderer>();
+                if (hasVariants)
+                {
+                    sr.sprite = floorVariants[Random.Range(0, floorVariants.Length)];
+                    sr.color  = bgTint;
+                }
+                else
+                {
+                    sr.sprite = _whiteSprite;
+                    sr.color  = new Color(0.1f, 0.1f, 0.15f);
+                    sr.drawMode = SpriteDrawMode.Tiled;
+                    sr.size     = Vector2.one;
+                }
+                sr.sortingOrder = -10;
+            }
+        }
+    }
+
+    void AddBlock(Transform parent, Vector2 size, Vector3 localPos, Color fallbackColor, Sprite sprite = null)
     {
         var go = new GameObject("Block");
         go.transform.SetParent(parent, false);
         go.transform.localPosition = localPos;
-        go.transform.localScale    = new Vector3(size.x, size.y, 1f);
+        go.transform.localScale = Vector3.one;
         go.layer = LayerMask.NameToLayer("Ground");
 
         var sr = go.AddComponent<SpriteRenderer>();
-        sr.sprite = _whiteSprite;
-        sr.color  = color;
+        sr.sprite   = sprite != null ? sprite : _whiteSprite;
+        sr.color    = sprite != null ? Color.white : fallbackColor;
+        sr.drawMode = SpriteDrawMode.Tiled;
+        sr.size     = size;
 
-        go.AddComponent<BoxCollider2D>().size = Vector2.one;
+        go.AddComponent<BoxCollider2D>().size = size;
     }
 
-    void AddPlatform(Transform parent, float width, Vector3 localPos, Color color)
+    void AddPlatform(Transform parent, float width, Vector3 localPos, Color fallbackColor)
     {
         var go = new GameObject("Platform");
         go.transform.SetParent(parent, false);
         go.transform.localPosition = localPos;
-        go.transform.localScale    = new Vector3(width, 0.5f, 1f);
+        go.transform.localScale = Vector3.one;
         go.layer = LayerMask.NameToLayer("Ground");
 
+        var size = new Vector2(width, 0.5f);
         var sr = go.AddComponent<SpriteRenderer>();
-        sr.sprite = _whiteSprite;
-        sr.color  = color;
+        sr.sprite   = platformSprite != null ? platformSprite : _whiteSprite;
+        sr.color    = platformSprite != null ? Color.white : fallbackColor;
+        sr.drawMode = SpriteDrawMode.Tiled;
+        sr.size     = size;
 
         var col = go.AddComponent<BoxCollider2D>();
-        col.size           = Vector2.one;
+        col.size           = size;
         col.usedByEffector = true;
         go.AddComponent<PlatformEffector2D>().useOneWay = true;
     }
@@ -130,9 +183,20 @@ public class DebugDungeonGenerator : MonoBehaviour
         go.transform.SetParent(parent, false);
         go.transform.localPosition = localPos;
 
+        if (doorSprite != null)
+        {
+            var visual = new GameObject("DoorVisual");
+            visual.transform.SetParent(go.transform, false);
+            visual.transform.localScale = new Vector3(2f, 3f, 1f);
+
+            var sr = visual.AddComponent<SpriteRenderer>();
+            sr.sprite       = doorSprite;
+            sr.sortingOrder = 1;
+        }
+
         var col = go.AddComponent<BoxCollider2D>();
         col.isTrigger = true;
-        col.size      = new Vector2(3f, roomHeight);
+        col.size      = new Vector2(3f, 4f);
 
         var door = go.AddComponent<DoorConnector>();
         door.side = side;
