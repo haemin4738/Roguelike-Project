@@ -10,7 +10,17 @@ public class RoomManager : MonoBehaviour
     void Awake() => Instance = this;
     void Update() { if (_cooldown > 0f) _cooldown -= Time.deltaTime; }
 
-    public void SetStartRoom(Room room) => CurrentRoom = room;
+    public void SetStartRoom(Room room)
+    {
+        CurrentRoom = room;
+        ActivateEnemies(room);
+    }
+
+    void ActivateEnemies(Room room)
+    {
+        foreach (var enemy in room.GetComponentsInChildren<EnemyBase>(true))
+            enemy.gameObject.SetActive(true);
+    }
 
     public void Transition(Room from, DoorConnector.Side side)
     {
@@ -36,5 +46,6 @@ public class RoomManager : MonoBehaviour
 
         CurrentRoom = next;
         _cooldown = 0.5f;
+        ActivateEnemies(next);
     }
 }

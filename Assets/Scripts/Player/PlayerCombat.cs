@@ -103,6 +103,7 @@ public class PlayerCombat : MonoBehaviour
         float endAngle = startAngle - meleeSwingAngle;
         float duration = 0.12f;
         float elapsed = 0f;
+        var alreadyHit = new System.Collections.Generic.HashSet<GameObject>();
 
         while (elapsed < duration)
         {
@@ -111,11 +112,11 @@ public class PlayerCombat : MonoBehaviour
             weaponPivot.rotation = Quaternion.Euler(0f, 0f, angle);
 
             Vector2 hitPoint = (Vector2)weaponPivot.position + (Vector2)(weaponPivot.right * CurrentWeapon.attackRange);
-            var hits = Physics2D.OverlapCircleAll(hitPoint, 0.3f, LayerMask.GetMask("Enemy"));
+            var hits = Physics2D.OverlapCircleAll(hitPoint, 0.5f, LayerMask.GetMask("Enemy"));
             foreach (var hit in hits)
             {
-                // TODO: DamageSystem 연결 (feat/enemy 브랜치)
-                Debug.Log($"근접 히트: {hit.name}");
+                if (alreadyHit.Add(hit.gameObject))
+                    DamageSystem.Damage(hit.gameObject, CurrentWeapon.damage);
             }
 
             yield return null;
@@ -132,7 +133,9 @@ public class PlayerCombat : MonoBehaviour
         Vector2 dir = (mouseWorld - (Vector2)projectileSpawnPoint.position).normalized;
 
         var go = Instantiate(CurrentWeapon.projectilePrefab, projectileSpawnPoint.position, Quaternion.identity);
-        go.GetComponent<ProjectileBase>().Init(dir, CurrentWeapon.projectileSpeed, CurrentWeapon.damage);
+        var proj = go.GetComponent<ProjectileBase>();
+        if (proj == null) { Destroy(go); return; }
+        proj.Init(dir, CurrentWeapon.projectileSpeed, CurrentWeapon.damage);
     }
 
     void OnDrawGizmosSelected()

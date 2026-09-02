@@ -15,8 +15,9 @@ MonoBehaviour:
   weaponName: Bow
   weaponType: 1
   sprite: {fileID: 5342339644809915694, guid: 71379670f2875ba4c8e052d1370a873b, type: 3}
+  spriteRotationOffset: 0
   damage: 10
   attackSpeed: 2
   attackRange: 1.5
-  projectilePrefab: {fileID: 0}
+  projectilePrefab: {fileID: 4521488661801535821, guid: 0f261e62321344741afd0a32f906b4b2, type: 3}
   projectileSpeed: 12
