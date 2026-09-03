@@ -92,10 +92,10 @@ public class DebugDungeonGenerator : MonoBehaviour
         AddTiledBackground(go.transform);
 
         // 바닥 / 좌벽 / 우벽 / 천장
-        AddBlock(go.transform, new Vector2(roomWidth + 2f, 1f),    new Vector3(roomWidth * .5f, -0.5f),            floorColor, floorSprite);
-        AddBlock(go.transform, new Vector2(1f, roomHeight),        new Vector3(-0.5f, roomHeight * .5f),            wallColor,  wallSprite);
-        AddBlock(go.transform, new Vector2(1f, roomHeight),        new Vector3(roomWidth + 0.5f, roomHeight * .5f), wallColor,  wallSprite);
-        AddBlock(go.transform, new Vector2(roomWidth + 2f, 1f),    new Vector3(roomWidth * .5f, roomHeight + .5f),  wallColor,  wallSprite);
+        AddBlock(go.transform, new Vector2(roomWidth + 2f, 1f),    new Vector3(roomWidth * .5f, -0.5f),            floorColor, floorSprite, boundary: true);
+        AddBlock(go.transform, new Vector2(1f, roomHeight),        new Vector3(-0.5f, roomHeight * .5f),            wallColor,  wallSprite,  boundary: true);
+        AddBlock(go.transform, new Vector2(1f, roomHeight),        new Vector3(roomWidth + 0.5f, roomHeight * .5f), wallColor,  wallSprite,  boundary: true);
+        AddBlock(go.transform, new Vector2(roomWidth + 2f, 1f),    new Vector3(roomWidth * .5f, roomHeight + .5f),  wallColor,  wallSprite,  boundary: true);
 
         // Normal·Boss: 오픈형(발판) or 미로형(솔리드 블록) 랜덤 선택
         if (type != RoomType.Start)
@@ -156,7 +156,7 @@ public class DebugDungeonGenerator : MonoBehaviour
         }
     }
 
-    void AddBlock(Transform parent, Vector2 size, Vector3 localPos, Color fallbackColor, Sprite sprite = null)
+    void AddBlock(Transform parent, Vector2 size, Vector3 localPos, Color fallbackColor, Sprite sprite = null, bool boundary = false)
     {
         var go = new GameObject("Block");
         go.transform.SetParent(parent, false);
@@ -171,6 +171,7 @@ public class DebugDungeonGenerator : MonoBehaviour
         sr.size     = size;
 
         go.AddComponent<BoxCollider2D>().size = size;
+        if (boundary) go.AddComponent<BoundaryMarker>();
     }
 
     void AddPlatform(Transform parent, float width, Vector3 localPos, Color fallbackColor)
@@ -244,13 +245,24 @@ public class DebugDungeonGenerator : MonoBehaviour
         }
 
         if (normalEnemyPrefabs == null || normalEnemyPrefabs.Length == 0) return;
-        float[] spawnX = { 10f, 30f };
-        foreach (float x in spawnX)
+
+        // 후보 x 위치들 — Ground 콜라이더와 겹치지 않는 곳에 스폰
+        float[] candidatesLeft  = { 8f,  6f, 12f, 16f };
+        float[] candidatesRight = { 32f, 34f, 28f, 24f };
+        var groundMask = LayerMask.GetMask("Ground");
+
+        foreach (var candidates in new[] { candidatesLeft, candidatesRight })
         {
+            float spawnX = candidates[0];
+            foreach (float cx in candidates)
+            {
+                if (Physics2D.OverlapCircle(roomPos + new Vector3(cx, 1.5f), 0.4f, groundMask) == null)
+                { spawnX = cx; break; }
+            }
             var prefab = normalEnemyPrefabs[Random.Range(0, normalEnemyPrefabs.Length)];
             if (prefab != null)
             {
-                var e = Instantiate(prefab, roomPos + new Vector3(x, 1f), Quaternion.identity);
+                var e = Instantiate(prefab, roomPos + new Vector3(spawnX, 1f), Quaternion.identity);
                 e.transform.SetParent(roomTransform);
                 e.SetActive(false);
             }

@@ -51,7 +51,7 @@ public class ProjectileBase : MonoBehaviour
                 return;
             }
 
-            if (go.layer == _groundLayer)
+            if (go.layer == _groundLayer && go.GetComponent<BoundaryMarker>() != null)
             {
                 Destroy(gameObject);
                 return;

@@ -25,7 +25,7 @@ public class GoldPickup : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.CompareTag("Player")) return;
+        if (other.GetComponent<PlayerController>() == null) return;
         GoldWallet.Add(amount);
         EventBus.Publish(new ItemPickedEvent { ItemName = $"Gold x{amount}" });
         Destroy(gameObject);
