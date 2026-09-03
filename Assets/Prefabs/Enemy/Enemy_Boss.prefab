@@ -113,6 +113,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 300
+  goldDrop: 100
+  dropWeapon: {fileID: 0}
+  coinFrames: []
 --- !u!114 &7845480025963751222
 MonoBehaviour:
   m_ObjectHideFlags: 0
