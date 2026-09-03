@@ -74,6 +74,12 @@ public class PlayerCombat : MonoBehaviour
         UpdateWeaponSprite();
     }
 
+    public void EquipWeapon(WeaponData data)
+    {
+        weaponSlots[_currentSlot] = data;
+        UpdateWeaponSprite();
+    }
+
     void UpdateWeaponSprite()
     {
         if (weaponSpriteRenderer == null) return;

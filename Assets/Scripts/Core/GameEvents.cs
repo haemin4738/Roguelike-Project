@@ -14,3 +14,7 @@ public struct EnemyKilledEvent
 public struct RoomClearedEvent { }
 
 public struct PlayerDiedEvent { }
+
+public struct GoldChangedEvent { public int Total; }
+
+public struct ItemPickedEvent { public string ItemName; }
