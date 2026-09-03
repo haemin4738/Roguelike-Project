@@ -92,10 +92,10 @@ public class DebugDungeonGenerator : MonoBehaviour
         AddTiledBackground(go.transform);
 
         // 바닥 / 좌벽 / 우벽 / 천장
-        AddBlock(go.transform, new Vector2(roomWidth + 2f, 1f),    new Vector3(roomWidth * .5f, -0.5f),            floorColor, floorSprite, boundary: true);
-        AddBlock(go.transform, new Vector2(1f, roomHeight),        new Vector3(-0.5f, roomHeight * .5f),            wallColor,  wallSprite,  boundary: true);
-        AddBlock(go.transform, new Vector2(1f, roomHeight),        new Vector3(roomWidth + 0.5f, roomHeight * .5f), wallColor,  wallSprite,  boundary: true);
-        AddBlock(go.transform, new Vector2(roomWidth + 2f, 1f),    new Vector3(roomWidth * .5f, roomHeight + .5f),  wallColor,  wallSprite,  boundary: true);
+        AddBlock(go.transform, new Vector2(roomWidth + 2f, 1f),    new Vector3(roomWidth * .5f, -0.5f),            floorColor, floorSprite, );
+        AddBlock(go.transform, new Vector2(1f, roomHeight),        new Vector3(-0.5f, roomHeight * .5f),            wallColor,  wallSprite,  );
+        AddBlock(go.transform, new Vector2(1f, roomHeight),        new Vector3(roomWidth + 0.5f, roomHeight * .5f), wallColor,  wallSprite,  );
+        AddBlock(go.transform, new Vector2(roomWidth + 2f, 1f),    new Vector3(roomWidth * .5f, roomHeight + .5f),  wallColor,  wallSprite,  );
 
         // Normal·Boss: 오픈형(발판) or 미로형(솔리드 블록) 랜덤 선택
         if (type != RoomType.Start)
@@ -156,7 +156,7 @@ public class DebugDungeonGenerator : MonoBehaviour
         }
     }
 
-    void AddBlock(Transform parent, Vector2 size, Vector3 localPos, Color fallbackColor, Sprite sprite = null, bool boundary = false)
+    void AddBlock(Transform parent, Vector2 size, Vector3 localPos, Color fallbackColor, Sprite sprite = null)
     {
         var go = new GameObject("Block");
         go.transform.SetParent(parent, false);
@@ -171,7 +171,6 @@ public class DebugDungeonGenerator : MonoBehaviour
         sr.size     = size;
 
         go.AddComponent<BoxCollider2D>().size = size;
-        if (boundary) go.AddComponent<BoundaryMarker>();
     }
 
     void AddPlatform(Transform parent, float width, Vector3 localPos, Color fallbackColor)
