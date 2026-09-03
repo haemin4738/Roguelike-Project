@@ -92,10 +92,10 @@ public class DebugDungeonGenerator : MonoBehaviour
         AddTiledBackground(go.transform);
 
         // 바닥 / 좌벽 / 우벽 / 천장
-        AddBlock(go.transform, new Vector2(roomWidth + 2f, 1f),    new Vector3(roomWidth * .5f, -0.5f),            floorColor, floorSprite, );
-        AddBlock(go.transform, new Vector2(1f, roomHeight),        new Vector3(-0.5f, roomHeight * .5f),            wallColor,  wallSprite,  );
-        AddBlock(go.transform, new Vector2(1f, roomHeight),        new Vector3(roomWidth + 0.5f, roomHeight * .5f), wallColor,  wallSprite,  );
-        AddBlock(go.transform, new Vector2(roomWidth + 2f, 1f),    new Vector3(roomWidth * .5f, roomHeight + .5f),  wallColor,  wallSprite,  );
+        AddBlock(go.transform, new Vector2(roomWidth + 2f, 1f),    new Vector3(roomWidth * .5f, -0.5f),            floorColor, floorSprite);
+        AddBlock(go.transform, new Vector2(1f, roomHeight),        new Vector3(-0.5f, roomHeight * .5f),            wallColor,  wallSprite);
+        AddBlock(go.transform, new Vector2(1f, roomHeight),        new Vector3(roomWidth + 0.5f, roomHeight * .5f), wallColor,  wallSprite);
+        AddBlock(go.transform, new Vector2(roomWidth + 2f, 1f),    new Vector3(roomWidth * .5f, roomHeight + .5f),  wallColor,  wallSprite);
 
         // Normal·Boss: 오픈형(발판) or 미로형(솔리드 블록) 랜덤 선택
         if (type != RoomType.Start)
