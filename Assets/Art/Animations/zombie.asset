@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cffb85eadc651f94db25cc144a768e32, type: 3}
+  m_Name: zombie
+  m_EditorClassIdentifier: 
+  idleFrames:
+  - {fileID: -2856441567249909997, guid: 0ef4c275ac53acb4e8f1702317e618e1, type: 3}
+  - {fileID: -1484694808219678131, guid: f37788eb4ce70084aba620e2c8938bd7, type: 3}
+  - {fileID: 8880239457213929409, guid: 99e55db1f3222b14eb1d6978cd9338dd, type: 3}
+  - {fileID: 4680982094814736339, guid: 012245104a183144da82d182fb89c9c5, type: 3}
+  runFrames: []
+  fps: 8

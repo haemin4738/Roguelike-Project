@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cffb85eadc651f94db25cc144a768e32, type: 3}
+  m_Name: wogol
+  m_EditorClassIdentifier: 
+  idleFrames:
+  - {fileID: -4048603622307402512, guid: 90a57493fc318314cb70d3a7312a107f, type: 3}
+  - {fileID: 3471962821234291208, guid: f5c078ab2155cc64c846bedf5ae7a1d0, type: 3}
+  - {fileID: -5582270914232568260, guid: 3e83e589c9d472f40908b56efde945ba, type: 3}
+  - {fileID: 763708227249999834, guid: 74cc401c8aa1b4b46b1e9dc81aded581, type: 3}
+  runFrames:
+  - {fileID: -6905715077604206039, guid: 390469ab22d3b1940af9a257323c17b0, type: 3}
+  - {fileID: -7889502735377941411, guid: 2e4fc7e67d4af4b4aa261cb64f67485a, type: 3}
+  - {fileID: -4655872419673829712, guid: e47b378f670a7c146935e7979ca46ca2, type: 3}
+  - {fileID: -199998169147906048, guid: feb2d40d590ae1946b7c73527d4aaefe, type: 3}
+  fps: 8

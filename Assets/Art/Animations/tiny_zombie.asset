@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cffb85eadc651f94db25cc144a768e32, type: 3}
+  m_Name: tiny_zombie
+  m_EditorClassIdentifier: 
+  idleFrames:
+  - {fileID: 9003473604379609772, guid: ad03b6c5141361b42853acfac76b43f8, type: 3}
+  - {fileID: 4283200379788420012, guid: ff7d859c64feb504dad530a1c06c2c4a, type: 3}
+  - {fileID: 6319767278267040378, guid: 0100bf1b3d3666546a398393f0fc32f7, type: 3}
+  - {fileID: 1624180122519133251, guid: 67dbb8a0c8b84e04a9976fa88bb5fd27, type: 3}
+  runFrames:
+  - {fileID: -4153303952748690953, guid: d415c8251e543154f9fbc9b118424730, type: 3}
+  - {fileID: -8179500377403186622, guid: 6beaf68c9bdfa7442859f1550295928f, type: 3}
+  - {fileID: 4366360797810449254, guid: 7f05619d107468349a52cd0d1603512b, type: 3}
+  - {fileID: -2068324807197269906, guid: a7c4ca0fe6fdf4a41a11e8da38448262, type: 3}
+  fps: 8

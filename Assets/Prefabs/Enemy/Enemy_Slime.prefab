@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2729020233500114300}
   - component: {fileID: 9208368782580279556}
   - component: {fileID: 8688618369774527852}
+  - component: {fileID: -5102408724312593267}
   m_Layer: 8
   m_Name: Enemy_Slime
   m_TagString: Enemy
@@ -113,6 +114,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 30
+  goldDrop: 10
+  coinCount: 1
+  coinFrames:
+  - {fileID: -8581138250487090976, guid: 6bf6a3a34179a5744a95249e77d8d29f, type: 3}
+  - {fileID: 1528701205709900085, guid: 1543ccc55ac4d8b43835280e82914296, type: 3}
+  - {fileID: 5264763353053897623, guid: 39774941c45439140aaac0826247a520, type: 3}
+  - {fileID: -4980889795198203003, guid: dff7da29a4e84e84c82d1a6d1f35eac0, type: 3}
 --- !u!114 &8688618369774527852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,6 +141,20 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &-5102408724312593267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829395424595122511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac552da057d8dee459074834b9da5604, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetRenderer: {fileID: 0}
+  animData: {fileID: 11400000, guid: bdcee6fff5c872d41898bf12e15fecce, type: 2}
 --- !u!1 &4746315707957091583
 GameObject:
   m_ObjectHideFlags: 0

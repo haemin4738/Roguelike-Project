@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cffb85eadc651f94db25cc144a768e32, type: 3}
+  m_Name: angel
+  m_EditorClassIdentifier: 
+  idleFrames:
+  - {fileID: -4502925872424433701, guid: a3aaa74488bbdc641a010688fa0caaad, type: 3}
+  - {fileID: -6272944141223022897, guid: 7c8756a4557c29e46a915ff9de68e513, type: 3}
+  - {fileID: 1031876066096598382, guid: c179676936bd56b4cb18c1d641302467, type: 3}
+  - {fileID: -3402376114357586730, guid: c055c29f967481e4d9681ae5e4880d4a, type: 3}
+  runFrames:
+  - {fileID: 8762378123169026558, guid: f943864378965b94ea13fee10e6360e3, type: 3}
+  - {fileID: 4800495113749455374, guid: 46e53da5411e56b419de76af0fcd7637, type: 3}
+  - {fileID: -674348324797979943, guid: 0528aebdae722294ba18b5703b00a776, type: 3}
+  - {fileID: 4908326418380041932, guid: c56206414172fdb469803c1e75653f2f, type: 3}
+  fps: 8

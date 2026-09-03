@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cffb85eadc651f94db25cc144a768e32, type: 3}
+  m_Name: tiny_slug
+  m_EditorClassIdentifier: 
+  idleFrames:
+  - {fileID: -1584674359443149197, guid: 1249a23df2be1074885f64cef5ee71c7, type: 3}
+  - {fileID: -8938582736360078820, guid: 73ae7b6f55359e945a2f422134963453, type: 3}
+  - {fileID: -4770219576034665883, guid: 27c5102f0b2c2bd4eb36061a4fab6e54, type: 3}
+  - {fileID: -6870263189603159055, guid: a0c269131aa191b468ea95f5b9d775bb, type: 3}
+  runFrames: []
+  fps: 8

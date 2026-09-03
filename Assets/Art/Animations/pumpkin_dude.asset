@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cffb85eadc651f94db25cc144a768e32, type: 3}
+  m_Name: pumpkin_dude
+  m_EditorClassIdentifier: 
+  idleFrames:
+  - {fileID: 801836815628676836, guid: 683aa2b03327b9744b260ad2c39c5e18, type: 3}
+  - {fileID: -748910592834371303, guid: a96593a04e65c0f41b368a3b2875c6e2, type: 3}
+  - {fileID: 59793362110918056, guid: 8fd2c2117457afc4f96892f524a151e7, type: 3}
+  - {fileID: -8424956285917644483, guid: 5552f91b45edcdc45ac18f89ad2e7f9a, type: 3}
+  runFrames:
+  - {fileID: 9118112242793926859, guid: 4507d71da9d758745afaac76f41f6c81, type: 3}
+  - {fileID: 3430409238846472636, guid: 4dade2be391bd4f4ba09b63aad671901, type: 3}
+  - {fileID: -4882913175357521974, guid: b9243433c9ae3154abcfa6eaa121bd6e, type: 3}
+  - {fileID: -1133998446210080971, guid: 2e5f8062f197b5f47bc012c3c02c4337, type: 3}
+  fps: 8

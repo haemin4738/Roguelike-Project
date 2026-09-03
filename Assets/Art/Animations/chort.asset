@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cffb85eadc651f94db25cc144a768e32, type: 3}
+  m_Name: chort
+  m_EditorClassIdentifier: 
+  idleFrames:
+  - {fileID: 2257904016204196439, guid: 8766ee5a86c83bf498a71dd291fd2473, type: 3}
+  - {fileID: 5565363347694979420, guid: 45c07fe62256a9941b557ceaaca2565f, type: 3}
+  - {fileID: -7564668308375390351, guid: a513900bcb2bb914d9b0743a14c715ba, type: 3}
+  - {fileID: 5312555880066355837, guid: 79acf848a8a4ee04c83072e475653592, type: 3}
+  runFrames:
+  - {fileID: 3738908858051609881, guid: 2673b2e877129d94986a4f4359abf53c, type: 3}
+  - {fileID: -731626320381420278, guid: 4a9fc7a7ade99894ab58b0081b841e1f, type: 3}
+  - {fileID: -8964827395825748428, guid: ad825d2fa613e2140b2d136298ee9df9, type: 3}
+  - {fileID: 5098777560019250460, guid: 0a1feda7eb56c634da7419ce33e762f2, type: 3}
+  fps: 8

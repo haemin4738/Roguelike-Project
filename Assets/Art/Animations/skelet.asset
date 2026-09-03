@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cffb85eadc651f94db25cc144a768e32, type: 3}
+  m_Name: skelet
+  m_EditorClassIdentifier: 
+  idleFrames:
+  - {fileID: -3801395117379775012, guid: bb36c8103c981994e94c98a9c68e5d0a, type: 3}
+  - {fileID: -9220170934936323435, guid: a8aef81be4af3a947b54f057e552a926, type: 3}
+  - {fileID: 6042680455125406518, guid: 711f703396be50445b02c1f67c180978, type: 3}
+  - {fileID: 2932469630006617533, guid: e60740ec2d80b0c4c956f612351c7465, type: 3}
+  runFrames:
+  - {fileID: -4604387559850027499, guid: 613d59c5092cd454c960c14edf32ffac, type: 3}
+  - {fileID: -9091610501002314651, guid: 237e2bf201b1468429941260a5b33158, type: 3}
+  - {fileID: -5093054398897925809, guid: 24c49f22c96d29d438fadb8a709ebbcc, type: 3}
+  - {fileID: 91344271923446119, guid: d4ef0d687718dde4599878e027bfaed7, type: 3}
+  fps: 8

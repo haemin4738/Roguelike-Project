@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cffb85eadc651f94db25cc144a768e32, type: 3}
+  m_Name: swampy
+  m_EditorClassIdentifier: 
+  idleFrames:
+  - {fileID: 3130317160998252023, guid: a8f4f6dc5713028459069a014bdb4a69, type: 3}
+  - {fileID: 1878867643553638925, guid: 1f838acec70a2804791a24efc317c151, type: 3}
+  - {fileID: -8596561306756582351, guid: ded45194afbd13146b89174cb20be616, type: 3}
+  - {fileID: 1692772702797373504, guid: 9dc63ad0192e3394f86aa5fc38ccd664, type: 3}
+  runFrames: []
+  fps: 8
