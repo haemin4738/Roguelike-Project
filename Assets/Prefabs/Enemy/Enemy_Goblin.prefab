@@ -113,6 +113,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 30
+  goldDrop: 10
+  dropWeapon: {fileID: 0}
+  coinFrames:
+  - {fileID: -8581138250487090976, guid: 6bf6a3a34179a5744a95249e77d8d29f, type: 3}
+  - {fileID: 1528701205709900085, guid: 1543ccc55ac4d8b43835280e82914296, type: 3}
+  - {fileID: 5264763353053897623, guid: 39774941c45439140aaac0826247a520, type: 3}
+  - {fileID: -4980889795198203003, guid: dff7da29a4e84e84c82d1a6d1f35eac0, type: 3}
 --- !u!114 &3860569014105811491
 MonoBehaviour:
   m_ObjectHideFlags: 0
