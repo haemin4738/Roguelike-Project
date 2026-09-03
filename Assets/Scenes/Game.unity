@@ -749,7 +749,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0217244659f4ce4b9d229caf35063e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomCount: 3
+  roomCount: 10
   roomWidth: 40
   roomHeight: 15
   normalEnemyPrefabs:
@@ -765,6 +765,11 @@ MonoBehaviour:
   - {fileID: 1592576676271243998, guid: 2cc9a29e21338a9428e6b98de98ba552, type: 3}
   - {fileID: 4704078750218319668, guid: 35a8771c13cf8e64e9a9ea0983501a79, type: 3}
   bgTint: {r: 0.35, g: 0.35, b: 0.4, a: 1}
+  spikeFrames:
+  - {fileID: 3032241974121846738, guid: 146e2ecc0b197004db72dd0956a630c1, type: 3}
+  - {fileID: 2417845897605264601, guid: 23a1e65edddc39b4bbff679e8bbbd786, type: 3}
+  - {fileID: 3197009277849462069, guid: 9d4d0160915e6cd4bbd62c0f3d23bbb4, type: 3}
+  - {fileID: -7945936929742752817, guid: 87f19e7f2dd74644488c4127b9455f6d, type: 3}
 --- !u!4 &997851774
 Transform:
   m_ObjectHideFlags: 0
