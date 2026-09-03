@@ -749,13 +749,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0217244659f4ce4b9d229caf35063e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomCount: 3
+  roomCount: 10
   roomWidth: 40
   roomHeight: 15
   normalEnemyPrefabs:
   - {fileID: 1829395424595122511, guid: 955d65c90112c4e4ea578578a383389e, type: 3}
   - {fileID: 4604126245239497124, guid: 26621840308ce864e93f2f8e64676e9d, type: 3}
   bossEnemyPrefab: {fileID: 6440254331960511540, guid: 6b9303b3b6d149543ab8fe9df3612110, type: 3}
+  floorSprite: {fileID: -230347990380208152, guid: b051f8bdc3e77414a91dc569feb661c6, type: 3}
+  wallSprite: {fileID: -6438638849891278220, guid: e885e1d059612ea4698162046efc3a80, type: 3}
+  platformSprite: {fileID: 1592576676271243998, guid: 2cc9a29e21338a9428e6b98de98ba552, type: 3}
+  doorSprite: {fileID: -4411095678748077593, guid: 036710b8041ab884894448fc479e2610, type: 3}
+  floorVariants:
+  - {fileID: -230347990380208152, guid: b051f8bdc3e77414a91dc569feb661c6, type: 3}
+  - {fileID: 1592576676271243998, guid: 2cc9a29e21338a9428e6b98de98ba552, type: 3}
+  - {fileID: 4704078750218319668, guid: 35a8771c13cf8e64e9a9ea0983501a79, type: 3}
+  bgTint: {r: 0.35, g: 0.35, b: 0.4, a: 1}
+  spikeFrames:
+  - {fileID: 3032241974121846738, guid: 146e2ecc0b197004db72dd0956a630c1, type: 3}
+  - {fileID: 2417845897605264601, guid: 23a1e65edddc39b4bbff679e8bbbd786, type: 3}
+  - {fileID: 3197009277849462069, guid: 9d4d0160915e6cd4bbd62c0f3d23bbb4, type: 3}
+  - {fileID: -7945936929742752817, guid: 87f19e7f2dd74644488c4127b9455f6d, type: 3}
 --- !u!4 &997851774
 Transform:
   m_ObjectHideFlags: 0
