@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cffb85eadc651f94db25cc144a768e32, type: 3}
+  m_Name: doc
+  m_EditorClassIdentifier: 
+  idleFrames:
+  - {fileID: 643659199895480889, guid: 369be682c17d7b94d9a3f9970643db77, type: 3}
+  - {fileID: -8658619314717278144, guid: 0dedc898f7b21364688f53b5d2402cec, type: 3}
+  - {fileID: -1126460175604213509, guid: 8c9a75a77e5845e4c8fb54e5cd7f4112, type: 3}
+  - {fileID: 6543620169482853840, guid: d59189d4c62300b46950f6b1581f722f, type: 3}
+  runFrames:
+  - {fileID: 6877167824940071236, guid: 0f36aa690f316cb49955454edbc2272e, type: 3}
+  - {fileID: -1946437555607141157, guid: 7c57dc4e97079c4409bc262869f199b3, type: 3}
+  - {fileID: -3401224997425255030, guid: 6e905b2cdfdc4934a90d7dc6b6e92a13, type: 3}
+  - {fileID: -3242422888272030721, guid: dccd1c779e28ae64f80a71705e7b5b3c, type: 3}
+  fps: 8

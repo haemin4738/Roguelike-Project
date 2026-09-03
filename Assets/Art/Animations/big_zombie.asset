@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cffb85eadc651f94db25cc144a768e32, type: 3}
+  m_Name: big_zombie
+  m_EditorClassIdentifier: 
+  idleFrames:
+  - {fileID: -6292866019085129150, guid: d1c4abe78f4fb4f4e847a3bcfc6ab464, type: 3}
+  - {fileID: 8324343579358036858, guid: 4922e03d23bd44848b9fc4f155e51438, type: 3}
+  - {fileID: -1916557216387785803, guid: 6856be81ec7dfcd48a7afcb9e6ba4734, type: 3}
+  - {fileID: 4293694599071962449, guid: 461c6f40beec74f4c9811d718df393ec, type: 3}
+  runFrames:
+  - {fileID: -2386536363059612362, guid: d4a2ebdab62e1c3479c4c38b2601fddb, type: 3}
+  - {fileID: 2338957276390684705, guid: f1ff84cccfcfb814cb4e75832d66a3d8, type: 3}
+  - {fileID: -8503402342355442397, guid: 42a600f3afa47b1488a63bdfed96a2c5, type: 3}
+  - {fileID: -5541200194630355007, guid: 3dfd311371a624e4797079bbaada98f7, type: 3}
+  fps: 8

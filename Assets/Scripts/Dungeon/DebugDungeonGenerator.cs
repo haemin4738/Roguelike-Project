@@ -249,6 +249,7 @@ public class DebugDungeonGenerator : MonoBehaviour
         float[] candidatesLeft  = { 8f,  6f, 12f, 16f };
         float[] candidatesRight = { 32f, 34f, 28f, 24f };
         var groundMask = LayerMask.GetMask("Ground");
+        Physics2D.SyncTransforms(); // 같은 프레임 생성 콜라이더가 쿼리에 반영되도록
 
         foreach (var candidates in new[] { candidatesLeft, candidatesRight })
         {

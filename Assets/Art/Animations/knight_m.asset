@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cffb85eadc651f94db25cc144a768e32, type: 3}
+  m_Name: knight_m
+  m_EditorClassIdentifier: 
+  idleFrames:
+  - {fileID: 4171610428287715108, guid: b3eee14705aeec14aa04e924334fe9cc, type: 3}
+  - {fileID: 3142486352412476369, guid: d4c32b572308d1847937f0d349ed3ec8, type: 3}
+  - {fileID: 5311782179231711814, guid: 78d9f37a45ba6b5428f546cdd5b758f4, type: 3}
+  - {fileID: 430475065234430554, guid: e31331573dd9b434e8a1bcf15edba292, type: 3}
+  runFrames:
+  - {fileID: -6918904722710735950, guid: 741acab3b68e39c41a79a6a51d6cf575, type: 3}
+  - {fileID: -1824817003286416738, guid: e5e48585b24d1ad4995b157609836d23, type: 3}
+  - {fileID: 2388322067273261879, guid: 45c95a89f21fb6745b3fe1ae54e84daa, type: 3}
+  - {fileID: 5928817031311551676, guid: 4702601d6a8e18c4fa36ecd8d4d1bbb6, type: 3}
+  fps: 8

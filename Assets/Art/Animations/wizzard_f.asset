@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cffb85eadc651f94db25cc144a768e32, type: 3}
+  m_Name: wizzard_f
+  m_EditorClassIdentifier: 
+  idleFrames:
+  - {fileID: -4721042436042700792, guid: 9e6c925270544194f997ae8ab73ad9f0, type: 3}
+  - {fileID: 1153904409268785697, guid: e9993ea0856d7d140a0c16223cf0f7cb, type: 3}
+  - {fileID: 2964344851528821143, guid: 37f7e71509f69c4418a931466322328b, type: 3}
+  - {fileID: 7987645740995342739, guid: c802f09aa1d2f244c9f0bf13ba6d8ad6, type: 3}
+  runFrames:
+  - {fileID: -4212091769728385042, guid: cbec33ad6017d304885eed2d21f10fc0, type: 3}
+  - {fileID: 3077049074205977423, guid: c08150f5c1b29b442a5ac07bfcdd89ba, type: 3}
+  - {fileID: -4613522765444141153, guid: 894e8e432e51f4345b496e01861d877c, type: 3}
+  - {fileID: -4380341352178467005, guid: 70937bcefecdfc34e83a30dcea810343, type: 3}
+  fps: 8

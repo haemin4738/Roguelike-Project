@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cffb85eadc651f94db25cc144a768e32, type: 3}
+  m_Name: muddy
+  m_EditorClassIdentifier: 
+  idleFrames:
+  - {fileID: 6628885074908135177, guid: 7324083f9445a4240886cc50e557a240, type: 3}
+  - {fileID: 4887431803917933335, guid: 618246f5c96410a4ea6160fd967f83f2, type: 3}
+  - {fileID: -1729894566451998315, guid: e801827be9676c641a390658975b92d1, type: 3}
+  - {fileID: -1780124802873774526, guid: 93cf3d90e69d11845b8bfd544f63f5ed, type: 3}
+  runFrames: []
+  fps: 8

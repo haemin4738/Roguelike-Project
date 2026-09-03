@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cffb85eadc651f94db25cc144a768e32, type: 3}
+  m_Name: imp
+  m_EditorClassIdentifier: 
+  idleFrames:
+  - {fileID: 4948191364208534778, guid: 75469446bbc05fa43aa0ae16f19ac9de, type: 3}
+  - {fileID: 5380121731766489985, guid: 20004d76102ffe246abcf584d94f37ea, type: 3}
+  - {fileID: -5593284934250556229, guid: f3806af4570cf654fa5bd17a5768aad0, type: 3}
+  - {fileID: -5176140627763384068, guid: 655c6b9791b9cce439f27103ffdfe300, type: 3}
+  runFrames:
+  - {fileID: 2807994088814316644, guid: 31b75e442b7a79a4aa72832564abb548, type: 3}
+  - {fileID: -1663252901769221706, guid: d631e187094152d47937671441388a09, type: 3}
+  - {fileID: 6372115117525653377, guid: 3faa3bec075ada9489535a283c2f4982, type: 3}
+  - {fileID: -8637876272605317312, guid: 33bb5efc7d93b9142b57002b3937963b, type: 3}
+  fps: 8

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cffb85eadc651f94db25cc144a768e32, type: 3}
+  m_Name: dwarf_f
+  m_EditorClassIdentifier: 
+  idleFrames:
+  - {fileID: 7452456610094171237, guid: 9b32bebbba3e2fd4e97f331921c57989, type: 3}
+  - {fileID: -6363409827653326696, guid: 46aca682595318344850d45a0e2fb528, type: 3}
+  - {fileID: 5642463876641616875, guid: aead9033a86acd64ab198ac57c2f2a71, type: 3}
+  - {fileID: -8374856403932398002, guid: c13176f29adc794409bb4f4c13a25943, type: 3}
+  runFrames:
+  - {fileID: 7771300500278826182, guid: 33878f3a0ae22184495273d21bc6cc98, type: 3}
+  - {fileID: -9081072420496142638, guid: 9a7ddad55a0225c49b031d3cca4487aa, type: 3}
+  - {fileID: 2708931945818916774, guid: 32452b345937ae343a06a52866ab3095, type: 3}
+  - {fileID: 3208693814678332403, guid: 062a01b5d3701dd4eb9366a82ede87ae, type: 3}
+  fps: 8

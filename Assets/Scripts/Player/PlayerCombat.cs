@@ -117,8 +117,14 @@ public class PlayerCombat : MonoBehaviour
             float angle = Mathf.Lerp(startAngle, endAngle, elapsed / duration);
             weaponPivot.rotation = Quaternion.Euler(0f, 0f, angle);
 
-            Vector2 hitPoint = (Vector2)weaponPivot.position + (Vector2)(weaponPivot.right * CurrentWeapon.attackRange);
-            var hits = Physics2D.OverlapCircleAll(hitPoint, 0.5f, LayerMask.GetMask("Enemy"));
+            // 피벗~끝 전체 Capsule 체크 — 밀착 시 tip-only 원형이 빗나가는 문제 수정
+            Vector2 capsuleCenter = (Vector2)weaponPivot.position + (Vector2)(weaponPivot.right * (CurrentWeapon.attackRange * 0.5f));
+            var hits = Physics2D.OverlapCapsuleAll(
+                capsuleCenter,
+                new Vector2(CurrentWeapon.attackRange, 0.8f),
+                CapsuleDirection2D.Horizontal,
+                weaponPivot.eulerAngles.z,
+                LayerMask.GetMask("Enemy"));
             foreach (var hit in hits)
             {
                 if (alreadyHit.Add(hit.gameObject))

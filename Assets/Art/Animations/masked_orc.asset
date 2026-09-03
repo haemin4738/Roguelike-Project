@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cffb85eadc651f94db25cc144a768e32, type: 3}
+  m_Name: masked_orc
+  m_EditorClassIdentifier: 
+  idleFrames:
+  - {fileID: 3024801116317025369, guid: 442de1a1ecb60d2418e8d25a38dd22fe, type: 3}
+  - {fileID: 9171425769096347044, guid: 2fe9479d64f06ba479c8213cb3694b58, type: 3}
+  - {fileID: -8161456550398956291, guid: f78b2b36cacb3d944b388659d6206d59, type: 3}
+  - {fileID: 7187381524170326588, guid: e7285f9231f4fa34286848a8af1492f8, type: 3}
+  runFrames:
+  - {fileID: 5645113673583816798, guid: 953c4ec610f9e2f4fa6a129354e52a6d, type: 3}
+  - {fileID: 143841583819079779, guid: d05b9ac471238fa46bda402b533f0448, type: 3}
+  - {fileID: -8836709685572291857, guid: 8a61f257f5b4fe24a9512fa1940e0123, type: 3}
+  - {fileID: 3092499122064598431, guid: dec3614bc1413b9458a9c3e6d7fd7acc, type: 3}
+  fps: 8

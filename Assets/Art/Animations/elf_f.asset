@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cffb85eadc651f94db25cc144a768e32, type: 3}
+  m_Name: elf_f
+  m_EditorClassIdentifier: 
+  idleFrames:
+  - {fileID: -7705881503871257117, guid: 2f1926b0b2b879046b81f00bdce647dc, type: 3}
+  - {fileID: 4154747890730819660, guid: a3ae7c176e94a824ca8ec3ce4ad36f4b, type: 3}
+  - {fileID: -2783996965974578656, guid: 1f39b9ae5eab0934e84d010e345c5b69, type: 3}
+  - {fileID: -4142169890692057821, guid: d43506c5169ff774fabf55d1b5f2702b, type: 3}
+  runFrames:
+  - {fileID: 2183263305003188435, guid: 85eb6c1e7dd52a34db12fd5c59f168a1, type: 3}
+  - {fileID: -2726497502512700874, guid: 4df40ee69e52dcd4782eb771fc682c48, type: 3}
+  - {fileID: 999804622620473934, guid: 5f50373e0c78312438feb3192622d60e, type: 3}
+  - {fileID: -1165000037994844686, guid: 232545f29cb5ce2488e56c0bd0ad6983, type: 3}
+  fps: 8

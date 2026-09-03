@@ -15,6 +15,8 @@ public struct RoomClearedEvent { }
 
 public struct PlayerDiedEvent { }
 
+public struct PlayerHpChangedEvent { public float Current; public float Max; }
+
 public struct GoldChangedEvent { public int Total; }
 
 public struct ItemPickedEvent { public string ItemName; }

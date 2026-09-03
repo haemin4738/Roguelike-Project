@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5943710307207323936}
   - component: {fileID: 4676045379751868067}
   - component: {fileID: 3860569014105811491}
+  - component: {fileID: 8008464676489703848}
   m_Layer: 8
   m_Name: Enemy_Goblin
   m_TagString: Enemy
@@ -114,7 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 30
   goldDrop: 10
-  dropWeapon: {fileID: 0}
+  coinCount: 1
   coinFrames:
   - {fileID: -8581138250487090976, guid: 6bf6a3a34179a5744a95249e77d8d29f, type: 3}
   - {fileID: 1528701205709900085, guid: 1543ccc55ac4d8b43835280e82914296, type: 3}
@@ -140,6 +141,20 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &8008464676489703848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4604126245239497124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac552da057d8dee459074834b9da5604, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetRenderer: {fileID: 0}
+  animData: {fileID: 11400000, guid: 3dcd022bc6f14334292859f52e91a9cb, type: 2}
 --- !u!1 &7142399415244990515
 GameObject:
   m_ObjectHideFlags: 0

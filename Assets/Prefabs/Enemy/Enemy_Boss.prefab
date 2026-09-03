@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1204575552717185708}
   - component: {fileID: 6227907196825580198}
   - component: {fileID: 7845480025963751222}
+  - component: {fileID: 4797702540959169776}
   m_Layer: 8
   m_Name: Enemy_Boss
   m_TagString: Enemy
@@ -114,8 +115,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 300
   goldDrop: 100
-  dropWeapon: {fileID: 0}
-  coinFrames: []
+  coinCount: 10
+  coinFrames:
+  - {fileID: -8581138250487090976, guid: 6bf6a3a34179a5744a95249e77d8d29f, type: 3}
+  - {fileID: 1528701205709900085, guid: 1543ccc55ac4d8b43835280e82914296, type: 3}
+  - {fileID: 5264763353053897623, guid: 39774941c45439140aaac0826247a520, type: 3}
+  - {fileID: -4980889795198203003, guid: dff7da29a4e84e84c82d1a6d1f35eac0, type: 3}
 --- !u!114 &7845480025963751222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,6 +143,20 @@ MonoBehaviour:
   projectileDamage: 15
   rangedCooldown: 1.8
   rangedRange: 8
+--- !u!114 &4797702540959169776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6440254331960511540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac552da057d8dee459074834b9da5604, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetRenderer: {fileID: 0}
+  animData: {fileID: 11400000, guid: c0724fe2b5bfc9b41b5dabb56b8c737d, type: 2}
 --- !u!1 &7120723538154249508
 GameObject:
   m_ObjectHideFlags: 0
