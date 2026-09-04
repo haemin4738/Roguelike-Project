@@ -37,10 +37,10 @@ public class MainMenuUI : MonoBehaviour
     {
         if (AuthManager.Instance == null) return;
         SetStatus("가입 중...");
-        AuthManager.Instance.Register(usernameField.text, "user@mail.com", passwordField.text, (ok, _) =>
+        AuthManager.Instance.Register(usernameField.text, passwordField.text, (ok, _) =>
         {
-            if (ok) { SetStatus("가입 완료!"); ShowMain(); }
-            else SetStatus("가입 실패");
+            if (ok) SetStatus("인증 메일을 발송했습니다.\n메일 확인 후 로그인해주세요.");
+            else SetStatus("가입 실패 (이미 사용 중인 이메일)");
         });
     }
 
