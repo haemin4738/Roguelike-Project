@@ -31,6 +31,7 @@ public class SceneLoader : MonoBehaviour
         float t = 0f;
         while (t < 1f)
         {
+            if (fadePanel == null) yield break;
             t += Time.deltaTime * 2f;
             fadePanel.color = new Color(0f, 0f, 0f, Mathf.Lerp(from, to, t));
             yield return null;

@@ -21,11 +21,11 @@ public class AuthManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void Register(string email, string password, Action<bool, string> callback)
+    public void Register(string username, string password, Action<bool, string> callback)
     {
         StartCoroutine(PostJson($"{BaseUrl}/auth/register",
-            $"{{\"email\":\"{email}\",\"password\":\"{password}\"}}",
-            (ok, body) => callback(ok, body)));
+            $"{{\"username\":\"{username}\",\"password\":\"{password}\"}}",
+            (ok, body) => { if (ok) SaveToken(body); callback(ok, body); }));
     }
 
     public void Login(string username, string password, Action<bool, string> callback)

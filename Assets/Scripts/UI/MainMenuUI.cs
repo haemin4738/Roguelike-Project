@@ -12,7 +12,12 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] TMP_InputField passwordField;
     [SerializeField] TMP_Text statusText;
 
-    void Start() => ShowMain();
+    void Start()
+    {
+        if (passwordField != null)
+            passwordField.contentType = TMP_InputField.ContentType.Password;
+        ShowMain();
+    }
 
     public void OnStartGame()
     {
@@ -39,8 +44,8 @@ public class MainMenuUI : MonoBehaviour
         SetStatus("가입 중...");
         AuthManager.Instance.Register(usernameField.text, passwordField.text, (ok, _) =>
         {
-            if (ok) SetStatus("인증 메일을 발송했습니다.\n메일 확인 후 로그인해주세요.");
-            else SetStatus("가입 실패 (이미 사용 중인 이메일)");
+            if (ok) { SetStatus(""); ShowMain(); }
+            else SetStatus("가입 실패 (이미 사용 중인 아이디)");
         });
     }
 
