@@ -18,6 +18,17 @@ public class CameraFollow : MonoBehaviour
 
         float nx = Mathf.SmoothDamp(transform.position.x, tx, ref _vx, xSmoothTime);
         float ny = Mathf.SmoothDamp(transform.position.y, ty, ref _vy, ySmoothTime);
+
+        var cam = GetComponent<Camera>();
+        var room = RoomManager.Instance?.CurrentRoom;
+        if (cam != null && room != null)
+        {
+            float halfH = cam.orthographicSize;
+            float halfW = halfH * cam.aspect;
+            nx = Mathf.Clamp(nx, room.CamMinX + halfW, room.CamMaxX - halfW);
+            ny = Mathf.Clamp(ny, room.CamMinY - 1f + halfH, room.CamMaxY + 1f - halfH);
+        }
+
         transform.position = new Vector3(nx, ny, transform.position.z);
     }
 }
