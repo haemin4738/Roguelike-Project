@@ -21,7 +21,7 @@ public class HeartDisplay : MonoBehaviour
             float segment = current - i * hpPerHeart;
             if (segment >= hpPerHeart)
                 _hearts[i].sprite = fullHeart;
-            else if (segment >= hpPerHeart * 0.5f)
+            else if (segment > 0)
                 _hearts[i].sprite = halfHeart;
             else
                 _hearts[i].sprite = emptyHeart;

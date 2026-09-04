@@ -12,7 +12,12 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] TMP_InputField passwordField;
     [SerializeField] TMP_Text statusText;
 
-    void Start() => ShowMain();
+    void Start()
+    {
+        if (passwordField != null)
+            passwordField.contentType = TMP_InputField.ContentType.Password;
+        ShowMain();
+    }
 
     public void OnStartGame()
     {
@@ -37,10 +42,10 @@ public class MainMenuUI : MonoBehaviour
     {
         if (AuthManager.Instance == null) return;
         SetStatus("가입 중...");
-        AuthManager.Instance.Register(usernameField.text, "user@mail.com", passwordField.text, (ok, _) =>
+        AuthManager.Instance.Register(usernameField.text, passwordField.text, (ok, _) =>
         {
-            if (ok) { SetStatus("가입 완료!"); ShowMain(); }
-            else SetStatus("가입 실패");
+            if (ok) { SetStatus(""); ShowMain(); }
+            else SetStatus("가입 실패 (이미 사용 중인 아이디)");
         });
     }
 

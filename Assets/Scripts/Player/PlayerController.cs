@@ -36,6 +36,8 @@ public class PlayerController : MonoBehaviour
 
     // 어빌리티 시스템 연동 (신속 5레벨: 이단점프, 신속 20레벨: 대시횟수+1)
     public int MaxDashCount { get => maxDashCount; set => maxDashCount = value; }
+    public int DashCount => _dashCount;
+    public float DashRechargeProgress => _dashCount < maxDashCount ? _dashRechargeTimer / dashRechargeTime : 0f;
     public bool CanDoubleJump { get; set; } = false;
     float _speedBonus;
     public void ApplySpeedBonus(float bonus) => _speedBonus = bonus;
@@ -49,6 +51,11 @@ public class PlayerController : MonoBehaviour
 
         // 벽 마찰 제거 — 마찰력이 있으면 벽에 붙어 공중에 멈추는 현상 발생
         _rb.sharedMaterial = new PhysicsMaterial2D { friction = 0f, bounciness = 0f };
+    }
+
+    void Start()
+    {
+        EventBus.Publish(new DashChangedEvent { Current = _dashCount, Max = maxDashCount, RechargeProgress = 0f, RechargeTime = dashRechargeTime });
     }
 
     void Update()
@@ -87,6 +94,7 @@ public class PlayerController : MonoBehaviour
             {
                 _dashCount++;
                 _dashRechargeTimer = 0f;
+                EventBus.Publish(new DashChangedEvent { Current = _dashCount, Max = maxDashCount, RechargeProgress = 0f, RechargeTime = dashRechargeTime });
             }
         }
     }
@@ -151,6 +159,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator DashRoutine()
     {
         _dashCount--;
+        EventBus.Publish(new DashChangedEvent { Current = _dashCount, Max = maxDashCount, RechargeProgress = _dashRechargeTimer / dashRechargeTime, RechargeTime = dashRechargeTime });
         _isDashing = true;
 
         Vector2 mouseWorld = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());

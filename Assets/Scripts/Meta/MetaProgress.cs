@@ -24,6 +24,10 @@ public class MetaProgress : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    void OnEnable() => EventBus.Subscribe<EnemyKilledEvent>(OnEnemyKilled);
+    void OnDisable() => EventBus.Unsubscribe<EnemyKilledEvent>(OnEnemyKilled);
+    void OnEnemyKilled(EnemyKilledEvent _) => RunKills++;
+
     public void LoadFromServer(PlayerDataResponse data, List<AbilityLevelEntry> abilities)
     {
         Ap = data.ap; Gold = data.gold;
