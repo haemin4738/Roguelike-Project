@@ -442,6 +442,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 100
   invincibleDuration: 0.5
+  bodyRenderer: {fileID: 1226442455}
 --- !u!114 &507386154
 MonoBehaviour:
   m_ObjectHideFlags: 0
