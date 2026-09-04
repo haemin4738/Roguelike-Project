@@ -37,6 +37,8 @@ public class PlayerController : MonoBehaviour
     // 어빌리티 시스템 연동 (신속 5레벨: 이단점프, 신속 20레벨: 대시횟수+1)
     public int MaxDashCount { get => maxDashCount; set => maxDashCount = value; }
     public bool CanDoubleJump { get; set; } = false;
+    float _speedBonus;
+    public void ApplySpeedBonus(float bonus) => _speedBonus = bonus;
     bool _usedDoubleJump;
 
     void Awake()
@@ -173,7 +175,7 @@ public class PlayerController : MonoBehaviour
         if (kb.aKey.isPressed || kb.leftArrowKey.isPressed) horizontal = -1f;
         if (kb.dKey.isPressed || kb.rightArrowKey.isPressed) horizontal = 1f;
 
-        _rb.linearVelocity = new Vector2(horizontal * moveSpeed, _rb.linearVelocity.y);
+        _rb.linearVelocity = new Vector2(horizontal * (moveSpeed + _speedBonus), _rb.linearVelocity.y);
 
         if (horizontal != 0f)
             _facingDir = horizontal;

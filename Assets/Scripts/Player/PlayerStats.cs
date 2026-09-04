@@ -7,12 +7,20 @@ public class PlayerStats : MonoBehaviour, IDamageable
     [SerializeField] float invincibleDuration = 0.5f;
     [SerializeField] SpriteRenderer bodyRenderer;
 
-    public float MaxHp => maxHp;
+    float _maxHpBonus;
+    public float MaxHp => maxHp + _maxHpBonus;
     public float CurrentHp { get; private set; }
 
     float _invincibleTimer;
 
-    void Awake() => CurrentHp = maxHp;
+    void Awake() => CurrentHp = MaxHp;
+
+    public void ApplyMetaBonuses(float maxHpBonus)
+    {
+        _maxHpBonus = maxHpBonus;
+        CurrentHp = Mathf.Min(CurrentHp + maxHpBonus, MaxHp);
+        EventBus.Publish(new PlayerHpChangedEvent { Current = CurrentHp, Max = MaxHp });
+    }
 
     void Update()
     {
