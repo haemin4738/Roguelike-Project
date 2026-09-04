@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class HUDController : MonoBehaviour
 {
-    [SerializeField] Image hpBar;
+    [SerializeField] HeartDisplay heartDisplay;
     [SerializeField] TMP_Text goldText;
     [SerializeField] TMP_Text levelText;
 
@@ -24,16 +24,15 @@ public class HUDController : MonoBehaviour
 
     void Start()
     {
+        var stats = FindFirstObjectByType<PlayerStats>();
+        if (stats != null)
+            heartDisplay?.SetHearts(stats.CurrentHp, stats.MaxHp);
         UpdateGold(GoldWallet.Gold);
         if (PlayerLevel.Instance != null)
             UpdateLevel(PlayerLevel.Instance.Level);
     }
 
-    void OnHpChanged(PlayerHpChangedEvent e)
-    {
-        if (hpBar != null)
-            hpBar.fillAmount = e.Max > 0f ? e.Current / e.Max : 0f;
-    }
+    void OnHpChanged(PlayerHpChangedEvent e) => heartDisplay?.SetHearts(e.Current, e.Max);
 
     void OnGoldChanged(GoldChangedEvent e) => UpdateGold(e.Total);
     void OnLevelUp(LevelUpEvent e) => UpdateLevel(e.NewLevel);
