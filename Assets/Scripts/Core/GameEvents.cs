@@ -25,3 +25,5 @@ public struct ItemPickedEvent { public string ItemName; }
 public struct RunEndedEvent { public bool Victory; public int FloorsCleared; public int Kills; }
 
 public struct LevelUpEvent { public int NewLevel; public int ApGained; }
+
+public struct DashChangedEvent { public int Current; public int Max; public float RechargeProgress; public float RechargeTime; }
