@@ -19,8 +19,24 @@ public class PlayerCombat : MonoBehaviour
     int _currentSlot = 0;
     float _attackCooldown;
     bool _isAttacking;
+    float _damageBonus, _critChance, _critDamageBonus;
 
     Camera _cam;
+
+    public void ApplyMetaBonuses(float damage, float critChance, float critDmg)
+    {
+        _damageBonus = damage;
+        _critChance = critChance;
+        _critDamageBonus = critDmg;
+    }
+
+    float FinalDamage(float baseDamage)
+    {
+        float dmg = baseDamage + _damageBonus;
+        if (_critChance > 0f && UnityEngine.Random.value < _critChance / 100f)
+            dmg *= 1f + _critDamageBonus / 100f;
+        return dmg;
+    }
 
     WeaponData CurrentWeapon => weaponSlots[_currentSlot];
 
@@ -128,7 +144,7 @@ public class PlayerCombat : MonoBehaviour
             foreach (var hit in hits)
             {
                 if (alreadyHit.Add(hit.gameObject))
-                    DamageSystem.Damage(hit.gameObject, CurrentWeapon.damage);
+                    DamageSystem.Damage(hit.gameObject, FinalDamage(CurrentWeapon.damage));
             }
 
             yield return null;
@@ -147,7 +163,7 @@ public class PlayerCombat : MonoBehaviour
         var go = Instantiate(CurrentWeapon.projectilePrefab, projectileSpawnPoint.position, Quaternion.identity);
         var proj = go.GetComponent<ProjectileBase>();
         if (proj == null) { Destroy(go); return; }
-        proj.Init(dir, CurrentWeapon.projectileSpeed, CurrentWeapon.damage);
+        proj.Init(dir, CurrentWeapon.projectileSpeed, FinalDamage(CurrentWeapon.damage));
     }
 
     void OnDrawGizmosSelected()

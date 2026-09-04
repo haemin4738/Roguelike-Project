@@ -10,6 +10,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
     [SerializeField] int goldDrop = 10;
     [SerializeField] int coinCount = 1;
     [SerializeField] Sprite[] coinFrames;
+    [SerializeField] int expReward = 20;
 
     protected float _hp;
     bool _dead;
@@ -27,7 +28,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
 
     protected virtual void Die()
     {
-        EventBus.Publish(new EnemyKilledEvent { Enemy = gameObject });
+        EventBus.Publish(new EnemyKilledEvent { Enemy = gameObject, ExpReward = expReward });
         SpawnDrops();
         Destroy(gameObject);
     }
