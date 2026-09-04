@@ -1683,7 +1683,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fullColor: {r: 0.3, g: 0.8, b: 1, a: 1}
   emptyColor: {r: 0.15, g: 0.15, b: 0.15, a: 1}
-  chargingColor: {r: 0.23504807, g: 0.32331985, b: 0.3584906, a: 1}
   borderColor: {r: 1, g: 1, b: 1, a: 1}
   segmentSize: {x: 48, y: 32}
   dividerWidth: 2
@@ -2107,12 +2106,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomCount: 4
-  roomWidth: 40
-  roomHeight: 15
+  roomWidth: 60
+  roomHeight: 30
   normalEnemyPrefabs:
   - {fileID: 1829395424595122511, guid: 955d65c90112c4e4ea578578a383389e, type: 3}
   - {fileID: 4604126245239497124, guid: 26621840308ce864e93f2f8e64676e9d, type: 3}
   bossEnemyPrefab: {fileID: 6440254331960511540, guid: 6b9303b3b6d149543ab8fe9df3612110, type: 3}
+  bossScale: 2
   floorSprite: {fileID: -230347990380208152, guid: b051f8bdc3e77414a91dc569feb661c6, type: 3}
   wallSprite: {fileID: -6438638849891278220, guid: e885e1d059612ea4698162046efc3a80, type: 3}
   platformSprite: {fileID: 1592576676271243998, guid: 2cc9a29e21338a9428e6b98de98ba552, type: 3}
