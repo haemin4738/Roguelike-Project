@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e343367f5be1fe04cad3a9f053c655c3, type: 3}
+  m_Name: weapon_double_axe_shop
+  m_EditorClassIdentifier: 
+  displayName: "\uC30D \uB3C4\uB07C"
+  weaponData: {fileID: 11400000, guid: b8f7002372354b44c920b1625ad82136, type: 2}
+  price: 350
+  icon: {fileID: 4059512458712482826, guid: bdf1443e413a6be4ba3bc4319a6c4288, type: 3}

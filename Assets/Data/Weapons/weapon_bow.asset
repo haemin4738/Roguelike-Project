@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92d8d7c8a18fe314abd17e3f890f19e0, type: 3}
+  m_Name: weapon_bow
+  m_EditorClassIdentifier: 
+  weaponName: "\uD65C"
+  weaponType: 1
+  sprite: {fileID: 5342339644809915694, guid: 71379670f2875ba4c8e052d1370a873b, type: 3}
+  spriteRotationOffset: 0
+  damage: 14
+  attackSpeed: 2
+  attackRange: 0
+  projectilePrefab: {fileID: 5473605545241113477, guid: 86fb8a66aaa6a49419c4406dbe6b292a, type: 3}
+  projectileSpeed: 12

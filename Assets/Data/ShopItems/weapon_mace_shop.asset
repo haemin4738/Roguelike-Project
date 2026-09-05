@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e343367f5be1fe04cad3a9f053c655c3, type: 3}
+  m_Name: weapon_mace_shop
+  m_EditorClassIdentifier: 
+  displayName: "\uCCA0\uD1F4"
+  weaponData: {fileID: 11400000, guid: de7792269eda2614c883fe50db5e8d5b, type: 2}
+  price: 240
+  icon: {fileID: 5921650766322417455, guid: db1562d56cb27ba4e9e845505999194e, type: 3}

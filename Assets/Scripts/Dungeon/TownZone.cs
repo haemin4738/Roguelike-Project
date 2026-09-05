@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class TownZone : MonoBehaviour
 {
-    public enum ZoneType { Shop, Ability }
+    public enum ZoneType { Shop, Ability, CharacterSelect }
 
     [SerializeField] ZoneType zoneType;
     [SerializeField] GameObject hintObject;
@@ -32,6 +32,7 @@ public class TownZone : MonoBehaviour
         if (!Keyboard.current.eKey.wasPressedThisFrame) return;
 
         if (zoneType == ZoneType.Shop) ShopUI.Instance?.Open();
-        else AbilityUI.Instance?.Open();
+        else if (zoneType == ZoneType.Ability) AbilityUI.Instance?.Open();
+        else CharacterSelectUI.Instance?.Open();
     }
 }

@@ -52,9 +52,20 @@ public class AbilityUI : MonoBehaviour
             bool maxed = lv >= data.maxLevel;
 
             var slot = Instantiate(abilitySlotPrefab, abilityContainer);
+            string nextMilestone = "";
+            if (!maxed)
+            {
+                if (lv < 5 && !string.IsNullOrEmpty(data.milestone5Desc))
+                    nextMilestone = $"\nLv.5: {data.milestone5Desc}";
+                else if (lv < 10 && !string.IsNullOrEmpty(data.milestone10Desc))
+                    nextMilestone = $"\nLv.10: {data.milestone10Desc}";
+                else if (lv < 20 && !string.IsNullOrEmpty(data.milestone20Desc))
+                    nextMilestone = $"\nLv.20: {data.milestone20Desc}";
+            }
+
             var texts = slot.GetComponentsInChildren<TMP_Text>();
             if (texts.Length > 0) texts[0].text = data.displayName;
-            if (texts.Length > 1) texts[1].text = maxed ? $"Lv.{lv} MAX" : $"Lv.{lv}  {cost}AP";
+            if (texts.Length > 1) texts[1].text = maxed ? $"Lv.{lv} MAX" : $"Lv.{lv}  {cost}AP{nextMilestone}";
 
             var btn = slot.GetComponentInChildren<Button>();
             if (btn == null) continue;

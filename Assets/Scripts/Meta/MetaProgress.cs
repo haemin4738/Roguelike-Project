@@ -14,6 +14,9 @@ public class MetaProgress : MonoBehaviour
 
     public Dictionary<string, int> Abilities { get; private set; } = new();
 
+    public float ShopDiscount { get; private set; }
+    internal void SetShopDiscount(float d) => ShopDiscount = d;
+
     public int RunKills { get; private set; }
     public int RunFloor { get; private set; }
 
