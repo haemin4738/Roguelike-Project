@@ -8,7 +8,7 @@
 
 ## 플레이 영상
 
-https://github.com/haemin4738/Roguelike-Project/releases/download/v1.0.0/2026-09-05.223733.mp4
+<video src="https://github.com/haemin4738/Roguelike-Project/releases/download/v1.0.0/2026-09-05.223733.mp4" controls width="100%"></video>
 
 ---
 
