@@ -31,6 +31,12 @@ public class DebugDungeonGenerator : MonoBehaviour
     [Header("Hazards")]
     [SerializeField] Sprite[] spikeFrames;
 
+    [Header("Town NPCs (Idle 프레임 배열)")]
+    [SerializeField] Sprite[] shopNpcFrames;
+    [SerializeField] Sprite[] characterSelectNpcFrames;
+    [SerializeField] Sprite[] abilityNpcFrames;
+
+
     Sprite _whiteSprite;
 
     void Awake() => _whiteSprite = MakeWhiteSprite();
@@ -399,37 +405,38 @@ public class DebugDungeonGenerator : MonoBehaviour
 
     void AddTownZones(Transform parent)
     {
-        AddZone(parent, TownZone.ZoneType.Shop,
-            new Color(0.9f, 0.8f, 0.2f),
-            new Vector3(roomWidth * 0.2f, 1f));
-
-        AddZone(parent, TownZone.ZoneType.CharacterSelect,
-            new Color(0.8f, 0.5f, 1f),
-            new Vector3(roomWidth * 0.5f, 1f));
-
-        AddZone(parent, TownZone.ZoneType.Ability,
-            new Color(0.4f, 0.6f, 1f),
-            new Vector3(roomWidth * 0.8f, 1f));
+        AddZone(parent, TownZone.ZoneType.Shop,            new Vector3(roomWidth * 0.2f, 1f), shopNpcFrames);
+        AddZone(parent, TownZone.ZoneType.CharacterSelect, new Vector3(roomWidth * 0.5f, 1f), characterSelectNpcFrames);
+        AddZone(parent, TownZone.ZoneType.Ability,         new Vector3(roomWidth * 0.8f, 1f), abilityNpcFrames);
     }
 
-    void AddZone(Transform parent, TownZone.ZoneType zoneType, Color color, Vector3 localPos)
+    void AddZone(Transform parent, TownZone.ZoneType zoneType, Vector3 localPos, Sprite[] npcFrames)
     {
-        // 장식용 카운터 블록
-        AddBlock(parent, new Vector2(4f, 2f), localPos + new Vector3(0f, 0.5f), color, null);
+        // NPC
+        if (npcFrames != null && npcFrames.Length > 0)
+        {
+            var npc = new GameObject($"NPC_{zoneType}");
+            npc.transform.SetParent(parent, false);
+            npc.transform.localPosition = new Vector3(localPos.x, 0.75f);
+            npc.transform.localScale = Vector3.one * 8f;
+            var sr = npc.AddComponent<SpriteRenderer>();
+            sr.sprite = npcFrames[0];
+            sr.sortingOrder = 2;
+            if (npcFrames.Length > 1)
+                npc.AddComponent<NpcIdleAnimator>().frames = npcFrames;
+        }
 
-        // 트리거 존 (플레이어 감지 영역)
+        // 트리거 존
         var go = new GameObject($"Zone_{zoneType}");
         go.transform.SetParent(parent, false);
         go.transform.localPosition = localPos;
-
         var col = go.AddComponent<BoxCollider2D>();
         col.isTrigger = true;
         col.size = new Vector2(10f, 6f);
-
         var zone = go.AddComponent<TownZone>();
         zone.Init(zoneType);
-        go.name = $"Zone_{zoneType}";
     }
+
 
     static Sprite MakeWhiteSprite()
     {
