@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e343367f5be1fe04cad3a9f053c655c3, type: 3}
+  m_Name: weapon_golden_sword_shop
+  m_EditorClassIdentifier: 
+  displayName: "\uD669\uAE08 \uAC80"
+  weaponData: {fileID: 11400000, guid: d8a42beea8befda498bc076850463777, type: 2}
+  price: 330
+  icon: {fileID: -6689593276534786356, guid: 459594ec9212582439cd7bc130448949, type: 3}

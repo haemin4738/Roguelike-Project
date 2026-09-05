@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f58ba38a64a9f1499729f00e4785b3f, type: 3}
+  m_Name: mystic
+  m_EditorClassIdentifier: 
+  abilityId: mystic
+  displayName: "\uC2E0\uBE44"
+  maxLevel: 20
+  requiresUnlock: 0
+  damagePerLevel: 0
+  speedPerLevel: 0
+  defensePerLevel: 0
+  maxHpPerLevel: 0
+  critChancePerLevel: 0.5
+  critDamagePerLevel: 0
+  attackSpeedPerLevel: 0
+  dodgeChancePerLevel: 0.5
+  milestone5Desc: "\uC0C1\uC810 \uAC00\uACA9 40% \uD560\uC778"
+  milestone10Desc: "\uC544\uC774\uD15C \uC2A4\uD0AC \uCFE8\uD0C0\uC784 20% \uAC10\uC18C"
+  milestone20Desc: "\uC0AC\uB9DD \uC2DC \uC544\uC774\uD15C 1\uAC1C \uBCF4\uAD00,
+    \uB300\uC2DC +1"
+  milestone5DoubleJump: 0
+  milestone5DashBonus: 0
+  milestone20DashBonus: 1
+  milestone5ShopDiscount: 0.4

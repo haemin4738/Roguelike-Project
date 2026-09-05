@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e343367f5be1fe04cad3a9f053c655c3, type: 3}
+  m_Name: weapon_throwing_axe_shop
+  m_EditorClassIdentifier: 
+  displayName: "\uD22C\uCC99 \uB3C4\uB07C"
+  weaponData: {fileID: 11400000, guid: 7fd4756df8705c64599ecfa250f4a123, type: 2}
+  price: 200
+  icon: {fileID: -6713593930976681571, guid: c8b814d89d6557f438bcf803291b9b23, type: 3}

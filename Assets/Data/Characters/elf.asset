@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45bae655dacfdc144b9a894289d5fe30, type: 3}
+  m_Name: elf
+  m_EditorClassIdentifier: 
+  characterId: elf
+  displayName: "\uC5D8\uD504"
+  description: "\uBE60\uB978 \uC774\uB3D9\uC18D\uB3C4\uC640 \uCD94\uAC00 \uB300\uC2DC.
+    \uC804\uC7A5\uC744 \uC790\uC720\uB86D\uAC8C \uB204\uBE48\uB2E4."
+  previewSprite: {fileID: -8154493969204524628, guid: 42c72499159603c41b823c04b1ca5fdd, type: 3}
+  bonusMaxHp: 0
+  bonusMoveSpeed: 1.5
+  bonusDamage: 0
+  bonusAttackSpeed: 0
+  bonusDashCount: 1

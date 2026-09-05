@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e343367f5be1fe04cad3a9f053c655c3, type: 3}
+  m_Name: weapon_machete_shop
+  m_EditorClassIdentifier: 
+  displayName: "\uB9C8\uCCB4\uD14C"
+  weaponData: {fileID: 11400000, guid: 99cfa47cba5dc964482749c52b64a7bd, type: 2}
+  price: 120
+  icon: {fileID: -4581058755857938637, guid: e441c416a3f61394b87084878283f5ee, type: 3}
