@@ -2,8 +2,16 @@ using UnityEngine;
 
 public class ShopManager : MonoBehaviour
 {
+    public static ShopManager Instance { get; private set; }
+
     [SerializeField] ShopItemData[] items;
     [SerializeField] PlayerCombat playerCombat;
+
+    void Awake()
+    {
+        if (Instance != null) { Destroy(gameObject); return; }
+        Instance = this;
+    }
 
     // UI에서 인덱스로 호출 (feat/ui에서 연결 예정)
     public bool TryBuy(int index)

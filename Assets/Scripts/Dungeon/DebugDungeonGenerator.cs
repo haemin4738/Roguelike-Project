@@ -109,8 +109,10 @@ public class DebugDungeonGenerator : MonoBehaviour
         AddBlock(go.transform, new Vector2(1f, roomHeight), new Vector3(roomWidth + 0.5f, roomHeight * .5f), wallColor, wallSprite);
         AddBlock(go.transform, new Vector2(roomWidth + 2f, 1f), new Vector3(roomWidth * .5f, roomHeight + .5f), wallColor, wallSprite);
 
-        // 중간층 바닥 (one-way)
-        AddMidFloor(go.transform, wallColor * 1.1f, midY);
+        if (type == RoomType.Start)
+            AddTownZones(go.transform);
+        else
+            AddMidFloor(go.transform, wallColor * 1.1f, midY);
 
         if (type != RoomType.Start)
         {
@@ -389,6 +391,38 @@ public class DebugDungeonGenerator : MonoBehaviour
         var player = GameObject.FindGameObjectWithTag("Player");
         if (player == null) return;
         player.transform.position = new Vector3(roomWidth * .5f, 3f, 0f);
+    }
+
+    void AddTownZones(Transform parent)
+    {
+        // 상점 존: 왼쪽 1/4 지점
+        AddZone(parent, TownZone.ZoneType.Shop,
+            new Color(0.9f, 0.8f, 0.2f),
+            new Vector3(roomWidth * 0.2f, 1f));
+
+        // 어빌리티 존: 오른쪽 3/4 지점
+        AddZone(parent, TownZone.ZoneType.Ability,
+            new Color(0.4f, 0.6f, 1f),
+            new Vector3(roomWidth * 0.8f, 1f));
+    }
+
+    void AddZone(Transform parent, TownZone.ZoneType zoneType, Color color, Vector3 localPos)
+    {
+        // 장식용 카운터 블록
+        AddBlock(parent, new Vector2(4f, 2f), localPos + new Vector3(0f, 0.5f), color, null);
+
+        // 트리거 존 (플레이어 감지 영역)
+        var go = new GameObject($"Zone_{zoneType}");
+        go.transform.SetParent(parent, false);
+        go.transform.localPosition = localPos + new Vector3(0f, 2f);
+
+        var col = go.AddComponent<BoxCollider2D>();
+        col.isTrigger = true;
+        col.size = new Vector2(6f, 3f);
+
+        var zone = go.AddComponent<TownZone>();
+        zone.Init(zoneType);
+        go.name = $"Zone_{zoneType}";
     }
 
     static Sprite MakeWhiteSprite()
