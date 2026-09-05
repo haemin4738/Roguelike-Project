@@ -17,7 +17,21 @@ public class PlayerLevel : MonoBehaviour
 
     void Awake()
     {
-        if (Instance != null) { Destroy(gameObject); return; }
+        if (Instance != null)
+        {
+            if (debugStartLevel > 1)
+            {
+                int target = Mathf.Clamp(debugStartLevel, 1, 30);
+                if (Instance.Level < target)
+                {
+                    MetaProgress.Instance?.AddAp(target - Instance.Level);
+                    Instance.Level = target;
+                    Instance.Exp = 0;
+                }
+            }
+            Destroy(gameObject);
+            return;
+        }
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
