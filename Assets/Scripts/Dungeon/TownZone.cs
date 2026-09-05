@@ -29,7 +29,7 @@ public class TownZone : MonoBehaviour
     void Update()
     {
         if (!_playerInRange || Keyboard.current == null) return;
-        if (!Keyboard.current.eKey.wasPressedThisFrame) return;
+        if (!Keyboard.current.fKey.wasPressedThisFrame) return;
 
         if (zoneType == ZoneType.Shop) ShopUI.Instance?.Open();
         else if (zoneType == ZoneType.Ability) AbilityUI.Instance?.Open();

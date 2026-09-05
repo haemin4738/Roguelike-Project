@@ -90,9 +90,17 @@ public class PlayerCombat : MonoBehaviour
         UpdateWeaponSprite();
     }
 
+    public WeaponData GetWeapon(int slot) => weaponSlots[Mathf.Clamp(slot, 0, 1)];
+
     public void EquipWeapon(WeaponData data)
     {
         weaponSlots[_currentSlot] = data;
+        UpdateWeaponSprite();
+    }
+
+    public void EquipWeapon(WeaponData data, int slot)
+    {
+        weaponSlots[Mathf.Clamp(slot, 0, 1)] = data;
         UpdateWeaponSprite();
     }
 

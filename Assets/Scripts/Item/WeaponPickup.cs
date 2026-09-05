@@ -11,7 +11,7 @@ public class WeaponPickup : MonoBehaviour
     void Update()
     {
         if (!_playerInRange) return;
-        if (Keyboard.current.eKey.wasPressedThisFrame) Pickup();
+        if (Keyboard.current.fKey.wasPressedThisFrame) Pickup();
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -29,9 +29,8 @@ public class WeaponPickup : MonoBehaviour
 
     void Pickup()
     {
-        var combat = _playerObj.GetComponent<PlayerCombat>();
-        if (combat == null) return;
-        combat.EquipWeapon(data);
+        if (PlayerInventory.Instance == null) return;
+        PlayerInventory.Instance.Add(data);
         EventBus.Publish(new ItemPickedEvent { ItemName = data.weaponName });
         Destroy(gameObject);
     }

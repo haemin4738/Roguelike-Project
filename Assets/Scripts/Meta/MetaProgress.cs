@@ -25,6 +25,7 @@ public class MetaProgress : MonoBehaviour
         if (Instance != null) { Destroy(gameObject); return; }
         Instance = this;
         DontDestroyOnLoad(gameObject);
+        Ap = 1;
     }
 
     void OnEnable() => EventBus.Subscribe<EnemyKilledEvent>(OnEnemyKilled);
@@ -51,6 +52,14 @@ public class MetaProgress : MonoBehaviour
         if (current >= maxLevel) return false;
         Abilities[id] = current + 1;
         return true;
+    }
+
+    public void ResetAbilities()
+    {
+        int refund = 0;
+        foreach (var kv in Abilities) refund += kv.Value;
+        Abilities.Clear();
+        Ap += refund;
     }
 
     public void RecordKill() => RunKills++;

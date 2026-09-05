@@ -9,7 +9,7 @@ public class DebugDungeonGenerator : MonoBehaviour
 
     [Header("Enemy Prefabs")]
     [SerializeField] GameObject[] normalEnemyPrefabs;
-    [SerializeField] GameObject bossEnemyPrefab;
+    [SerializeField] GameObject[] bossEnemyPrefabs;
 
     [Header("Scale")]
     [SerializeField] float bossScale = 2f;
@@ -232,12 +232,16 @@ public class DebugDungeonGenerator : MonoBehaviour
 
         if (type == RoomType.Boss)
         {
-            if (bossEnemyPrefab != null)
+            if (bossEnemyPrefabs != null && bossEnemyPrefabs.Length > 0)
             {
-                var e = Instantiate(bossEnemyPrefab, roomPos + new Vector3(roomWidth * 0.5f, 2f), Quaternion.identity);
-                e.transform.SetParent(roomTransform);
-                e.transform.localScale = Vector3.one * bossScale;
-                e.SetActive(false);
+                var prefab = bossEnemyPrefabs[Random.Range(0, bossEnemyPrefabs.Length)];
+                if (prefab != null)
+                {
+                    var e = Instantiate(prefab, roomPos + new Vector3(roomWidth * 0.5f, 2f), Quaternion.identity);
+                    e.transform.SetParent(roomTransform);
+                    e.transform.localScale = Vector3.one * bossScale;
+                    e.SetActive(false);
+                }
             }
             return;
         }

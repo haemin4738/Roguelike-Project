@@ -35,7 +35,16 @@ public class PlayerController : MonoBehaviour
     float _facingDir = 1f;
 
     // 어빌리티 시스템 연동 (신속 5레벨: 이단점프, 신속 20레벨: 대시횟수+1)
-    public int MaxDashCount { get => maxDashCount; set => maxDashCount = value; }
+    public int MaxDashCount
+    {
+        get => maxDashCount;
+        set
+        {
+            maxDashCount = value;
+            _dashCount = Mathf.Min(_dashCount, maxDashCount);
+            EventBus.Publish(new DashChangedEvent { Current = _dashCount, Max = maxDashCount, RechargeProgress = DashRechargeProgress, RechargeTime = dashRechargeTime });
+        }
+    }
     public int DashCount => _dashCount;
     public float DashRechargeProgress => _dashCount < maxDashCount ? _dashRechargeTimer / dashRechargeTime : 0f;
     public bool CanDoubleJump { get; set; } = false;

@@ -7,13 +7,28 @@ public class GameOverUI : MonoBehaviour
     [SerializeField] TMP_Text killsText;
     [SerializeField] TMP_Text levelText;
 
-    void OnEnable() => EventBus.Subscribe<PlayerDiedEvent>(OnPlayerDied);
-    void OnDisable() => EventBus.Unsubscribe<PlayerDiedEvent>(OnPlayerDied);
+    [SerializeField] TMP_Text titleText;
+
+    void OnEnable()
+    {
+        EventBus.Subscribe<PlayerDiedEvent>(OnPlayerDied);
+        EventBus.Subscribe<RunEndedEvent>(OnRunEnded);
+    }
+    void OnDisable()
+    {
+        EventBus.Unsubscribe<PlayerDiedEvent>(OnPlayerDied);
+        EventBus.Unsubscribe<RunEndedEvent>(OnRunEnded);
+    }
 
     void Start() => panel?.SetActive(false);
 
-    void OnPlayerDied(PlayerDiedEvent _)
+    void OnPlayerDied(PlayerDiedEvent _) => Show("게임 오버");
+
+    void OnRunEnded(RunEndedEvent e) { if (e.Victory) Show("클리어!"); }
+
+    void Show(string title)
     {
+        if (titleText != null) titleText.text = title;
         panel?.SetActive(true);
         Time.timeScale = 0f;
         var meta = MetaProgress.Instance;

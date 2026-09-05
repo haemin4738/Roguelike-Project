@@ -24,6 +24,12 @@ public class BossAI : MonoBehaviour
     float _attackTimer;
     bool _phase2;
 
+    void OnDestroy()
+    {
+        if (_base != null && _base.HpFraction <= 0f)
+            EventBus.Publish(new RunEndedEvent { Victory = true, Kills = MetaProgress.Instance?.RunKills ?? 0 });
+    }
+
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();

@@ -17,6 +17,7 @@ MonoBehaviour:
   description: "\uBE60\uB978 \uC774\uB3D9\uC18D\uB3C4\uC640 \uCD94\uAC00 \uB300\uC2DC.
     \uC804\uC7A5\uC744 \uC790\uC720\uB86D\uAC8C \uB204\uBE48\uB2E4."
   previewSprite: {fileID: -8154493969204524628, guid: 42c72499159603c41b823c04b1ca5fdd, type: 3}
+  animData: {fileID: 11400000, guid: df1ec048da2674e42b185bda25c58cbe, type: 2}
   bonusMaxHp: 0
   bonusMoveSpeed: 1.5
   bonusDamage: 0

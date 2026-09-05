@@ -17,6 +17,7 @@ MonoBehaviour:
   description: "\uB4E0\uB4E0\uD55C \uCCB4\uB825\uACFC \uAC15\uB825\uD55C \uACF5\uACA9\uB825.
     \uB290\uB9AC\uC9C0\uB9CC \uD55C \uBC29\uC774 \uAC15\uD558\uB2E4."
   previewSprite: {fileID: 4171610428287715108, guid: b3eee14705aeec14aa04e924334fe9cc, type: 3}
+  animData: {fileID: 11400000, guid: 9e055d242e0708f47bb4ffeb7da14930, type: 2}
   bonusMaxHp: 30
   bonusMoveSpeed: 0
   bonusDamage: 3

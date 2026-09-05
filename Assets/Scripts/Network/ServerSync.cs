@@ -20,12 +20,13 @@ public class ServerSync : MonoBehaviour
         EventBus.Unsubscribe<RunEndedEvent>(OnVictory);
     }
 
-    void OnRunEnd(PlayerDiedEvent _) => SyncAll();
-    void OnVictory(RunEndedEvent _) => SyncAll();
+    void OnRunEnd(PlayerDiedEvent _) => SyncAll(false);
+    void OnVictory(RunEndedEvent e) { if (e.Victory) SyncAll(true); }
 
-    void SyncAll()
+    void SyncAll(bool victory)
     {
         if (AuthManager.Instance == null || !AuthManager.Instance.IsLoggedIn) return;
+        MetaProgress.Instance?.OnRunEnd(victory);
         StartCoroutine(PutPlayerData());
         StartCoroutine(PutAbilities());
     }
