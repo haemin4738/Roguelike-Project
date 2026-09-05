@@ -6,9 +6,9 @@
 
 ---
 
-## 플레이 영상 / 스크린샷
+## 플레이 영상
 
-> *(추후 추가 예정)*
+https://github.com/haemin4738/Roguelike-Project/releases/download/v1.0.0/2026-09-05.223733.mp4
 
 ---
 
