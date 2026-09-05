@@ -701,7 +701,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeonui.v1_13
+      name: dungeonui.ffffff
       rect:
         serializedVersion: 2
         x: 23
@@ -710,7 +710,7 @@ TextureImporter:
         height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 6, y: 6, z: 6, w: 6}
       customData: 
       outline: []
       physicsShape: []
@@ -2760,6 +2760,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+      dungeonui.ffffff: -4745567402290024960
       dungeonui.frame: 1307874291118935997
       dungeonui.v1_0: 2232534696157534789
       dungeonui.v1_1: 7587542520182383178
@@ -2772,7 +2773,6 @@ TextureImporter:
       dungeonui.v1_105: 2457513490972131521
       dungeonui.v1_11: 9089848584861561697
       dungeonui.v1_12: 352364634846506028
-      dungeonui.v1_13: -4745567402290024960
       dungeonui.v1_14: 922318763649994988
       dungeonui.v1_15: -7214729032666405099
       dungeonui.v1_16: 1899417403977009783

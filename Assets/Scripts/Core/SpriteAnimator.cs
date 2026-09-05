@@ -10,6 +10,14 @@ public class SpriteAnimator : MonoBehaviour
     int _frame;
     float _timer;
 
+    public void SetAnimData(CharacterAnimData data)
+    {
+        animData = data;
+        _current = data?.idleFrames;
+        _frame = 0;
+        _timer = 0f;
+    }
+
     void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();

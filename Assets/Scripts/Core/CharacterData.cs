@@ -8,6 +8,9 @@ public class CharacterData : ScriptableObject
     [TextArea] public string description;
     public Sprite previewSprite;
 
+    [Header("Animation")]
+    public CharacterAnimData animData;
+
     [Header("Base Stat Bonuses")]
     public float bonusMaxHp;
     public float bonusMoveSpeed;

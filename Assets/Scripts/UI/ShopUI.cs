@@ -37,6 +37,8 @@ public class ShopUI : MonoBehaviour
         foreach (Transform t in itemContainer) Destroy(t.gameObject);
         if (ShopManager.Instance == null) return;
 
+        float discount = MetaProgress.Instance?.ShopDiscount ?? 0f;
+
         for (int i = 0; i < ShopManager.Instance.ItemCount; i++)
         {
             var item = ShopManager.Instance.GetItem(i);
@@ -44,13 +46,22 @@ public class ShopUI : MonoBehaviour
 
             var slot = Instantiate(itemSlotPrefab, itemContainer);
             int idx = i;
+            int finalPrice = Mathf.RoundToInt(item.price * (1f - discount));
+
+            Image img = null;
+            foreach (var candidate in slot.GetComponentsInChildren<Image>())
+            {
+                if (candidate.gameObject != slot) { img = candidate; break; }
+            }
+            if (img != null && item.icon != null)
+            {
+                img.sprite = item.icon;
+                img.transform.localScale = Vector3.one * 0.5f;
+            }
 
             var texts = slot.GetComponentsInChildren<TMP_Text>();
             if (texts.Length > 0) texts[0].text = item.displayName;
-            if (texts.Length > 1) texts[1].text = $"{item.price}G";
-
-            var img = slot.GetComponentInChildren<Image>();
-            if (img != null && item.icon != null) img.sprite = item.icon;
+            if (texts.Length > 1) texts[1].text = discount > 0 ? $"<s>{item.price}G</s>  {finalPrice}G" : $"{item.price}G";
 
             slot.GetComponentInChildren<Button>()?.onClick.AddListener(() =>
             {

@@ -6,14 +6,32 @@ public class MetaProgressApplicator : MonoBehaviour
     [SerializeField] PlayerStats playerStats;
     [SerializeField] PlayerCombat playerCombat;
     [SerializeField] PlayerController playerController;
+    [SerializeField] SpriteRenderer playerRenderer;
+
+    int _baseDashCount;
 
     void Start()
+    {
+        _baseDashCount = playerController != null ? playerController.MaxDashCount : 2;
+        Apply();
+    }
+
+    public void Reapply()
+    {
+        if (playerController != null)
+        {
+            playerController.MaxDashCount = _baseDashCount;
+            playerController.CanDoubleJump = false;
+        }
+        Apply();
+    }
+
+    void Apply()
     {
         if (MetaProgress.Instance == null || allAbilities == null) return;
 
         float totalDamage = 0, totalMaxHp = 0, totalSpeed = 0;
         float totalCrit = 0, totalCritDmg = 0;
-
         int totalMilestoneDash = 0;
         float shopDiscount = 0f;
 
@@ -45,6 +63,12 @@ public class MetaProgressApplicator : MonoBehaviour
         var charData = CharacterManager.Selected;
         if (charData != null)
         {
+            if (playerRenderer != null && charData.animData != null)
+            {
+                var anim = playerRenderer.GetComponent<SpriteAnimator>()
+                        ?? playerRenderer.GetComponentInParent<SpriteAnimator>();
+                anim?.SetAnimData(charData.animData);
+            }
             totalDamage += charData.bonusDamage;
             totalMaxHp  += charData.bonusMaxHp;
             totalSpeed  += charData.bonusMoveSpeed;

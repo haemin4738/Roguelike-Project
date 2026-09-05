@@ -10,6 +10,8 @@ public class PlayerLevel : MonoBehaviour
         11500, 12600, 13750, 14950, 16200, 17500, 18850, 20250, 21700, 23200
     };
 
+    [SerializeField] int debugStartLevel = 1;
+
     public int Level { get; private set; } = 1;
     public int Exp { get; private set; }
 
@@ -18,6 +20,16 @@ public class PlayerLevel : MonoBehaviour
         if (Instance != null) { Destroy(gameObject); return; }
         Instance = this;
         DontDestroyOnLoad(gameObject);
+    }
+
+    void Start()
+    {
+        if (debugStartLevel <= 1) return;
+        int target = Mathf.Clamp(debugStartLevel, 1, 30);
+        int apToGive = target - Level;
+        Level = target;
+        MetaProgress.Instance?.AddAp(apToGive);
+        EventBus.Publish(new LevelUpEvent { NewLevel = Level, ApGained = apToGive });
     }
 
     void OnEnable()

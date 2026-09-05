@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class HUDController : MonoBehaviour
@@ -7,6 +8,14 @@ public class HUDController : MonoBehaviour
     [SerializeField] HeartDisplay heartDisplay;
     [SerializeField] TMP_Text goldText;
     [SerializeField] TMP_Text levelText;
+
+    void Update()
+    {
+        var kb = Keyboard.current;
+        if (kb == null) return;
+        if (kb.eKey.wasPressedThisFrame) CharacterInfoUI.Instance?.Toggle();
+        if (kb.iKey.wasPressedThisFrame) InventoryUI.Instance?.Toggle();
+    }
 
     void OnEnable()
     {
