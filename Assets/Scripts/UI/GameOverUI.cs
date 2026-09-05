@@ -22,17 +22,16 @@ public class GameOverUI : MonoBehaviour
 
     void Start() => panel?.SetActive(false);
 
-    void OnPlayerDied(PlayerDiedEvent _) => Show("게임 오버");
+    void OnPlayerDied(PlayerDiedEvent _) => Show("게임 오버", MetaProgress.Instance?.RunKills ?? 0);
 
-    void OnRunEnded(RunEndedEvent e) { if (e.Victory) Show("클리어!"); }
+    void OnRunEnded(RunEndedEvent e) { if (e.Victory) Show("클리어!", e.Kills); }
 
-    void Show(string title)
+    void Show(string title, int kills)
     {
         if (titleText != null) titleText.text = title;
         panel?.SetActive(true);
         Time.timeScale = 0f;
-        var meta = MetaProgress.Instance;
-        if (killsText != null && meta != null) killsText.text = $"처치: {meta.RunKills}";
+        if (killsText != null) killsText.text = $"처치: {kills}";
         if (levelText != null && PlayerLevel.Instance != null)
             levelText.text = $"Lv.{PlayerLevel.Instance.Level}";
     }

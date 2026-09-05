@@ -19,13 +19,7 @@ public class MainMenuUI : MonoBehaviour
         ShowMain();
     }
 
-    public void OnStartGame()
-    {
-        if (AuthManager.Instance != null && AuthManager.Instance.IsLoggedIn)
-            SceneLoader.Instance?.LoadScene("Game");
-        else
-            ShowLogin();
-    }
+    public void OnStartGame() => ShowLogin();
 
     public void OnLogin()
     {
@@ -33,7 +27,7 @@ public class MainMenuUI : MonoBehaviour
         SetStatus("로그인 중...");
         AuthManager.Instance.Login(usernameField.text, passwordField.text, (ok, _) =>
         {
-            if (ok) { SetStatus(""); ShowMain(); }
+            if (ok) SceneLoader.Instance?.LoadScene("Game");
             else SetStatus("로그인 실패");
         });
     }

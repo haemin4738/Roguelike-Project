@@ -8,10 +8,13 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] Vector2 offset;
 
     float _vx, _vy;
+    Camera _cam;
+
+    void Awake() => _cam = GetComponent<Camera>();
 
     void LateUpdate()
     {
-        if (target == null) return;
+        if (target == null || Time.timeScale == 0f) return;
 
         float tx = target.position.x + offset.x;
         float ty = target.position.y + offset.y;
@@ -19,7 +22,7 @@ public class CameraFollow : MonoBehaviour
         float nx = Mathf.SmoothDamp(transform.position.x, tx, ref _vx, xSmoothTime);
         float ny = Mathf.SmoothDamp(transform.position.y, ty, ref _vy, ySmoothTime);
 
-        var cam = GetComponent<Camera>();
+        var cam = _cam;
         var room = RoomManager.Instance?.CurrentRoom;
         if (cam != null && room != null)
         {

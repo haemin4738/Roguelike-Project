@@ -8,6 +8,12 @@ public class ServerSync : MonoBehaviour
 {
     const string BaseUrl = "https://roguelike-project-server-production.up.railway.app";
 
+    void Start()
+    {
+        if (AuthManager.Instance != null && AuthManager.Instance.IsLoggedIn)
+            StartCoroutine(LoadAll());
+    }
+
     void OnEnable()
     {
         EventBus.Subscribe<PlayerDiedEvent>(OnRunEnd);
@@ -19,6 +25,33 @@ public class ServerSync : MonoBehaviour
         EventBus.Unsubscribe<PlayerDiedEvent>(OnRunEnd);
         EventBus.Unsubscribe<RunEndedEvent>(OnVictory);
     }
+
+    IEnumerator LoadAll()
+    {
+        string dataJson = null, abilitiesJson = null;
+        yield return Get($"{BaseUrl}/player/data", r => dataJson = r);
+        yield return Get($"{BaseUrl}/player/abilities", r => abilitiesJson = r);
+        if (dataJson == null || abilitiesJson == null) yield break;
+
+        var data = JsonUtility.FromJson<PlayerDataResponse>(dataJson);
+        var wrapper = JsonUtility.FromJson<AbilityListWrapper>("{\"items\":" + abilitiesJson + "}");
+        if (data != null && wrapper != null)
+            MetaProgress.Instance?.LoadFromServer(data, wrapper.items);
+    }
+
+    IEnumerator Get(string url, System.Action<string> onSuccess)
+    {
+        var req = UnityWebRequest.Get(url);
+        req.SetRequestHeader("Authorization", $"Bearer {AuthManager.Instance.Token}");
+        yield return req.SendWebRequest();
+        if (req.result == UnityWebRequest.Result.Success)
+            onSuccess(req.downloadHandler.text);
+        else
+            Debug.LogWarning($"[ServerSync] GET {url} failed: {req.downloadHandler.text}");
+    }
+
+    [System.Serializable]
+    class AbilityListWrapper { public List<AbilityLevelEntry> items; }
 
     void OnRunEnd(PlayerDiedEvent _) => SyncAll(false);
     void OnVictory(RunEndedEvent e) { if (e.Victory) SyncAll(true); }
